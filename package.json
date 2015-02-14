@@ -1,0 +1,29 @@
+{
+  "name": "ScoreBoardApp",
+  "version": "1.0.0",
+  "description": "ScoreBoard is an application that can be used in cricket matches for storing score in an manageable way.",
+  "main": "server.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yashdeeph709/ScoreBoardApp.git"
+  },
+  "keywords": [
+    "angular",
+    "node",
+    "scoreboard",
+    "apache",
+    "cassandra"
+  ],
+  "author": "Yashdeep Hinge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashdeeph709/ScoreBoardApp/issues"
+  },
+  "homepage": "https://github.com/yashdeeph709/ScoreBoardApp"
+}
