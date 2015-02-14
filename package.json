@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/yashdeeph709/ScoreBoardApp/issues"
   },
-  "homepage": "https://github.com/yashdeeph709/ScoreBoardApp"
+  "homepage": "https://github.com/yashdeeph709/ScoreBoardApp",
+  "dependencies": {
+    "express": "^4.11.2"
+  }
 }
