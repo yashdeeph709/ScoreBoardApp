@@ -38,7 +38,7 @@
                 <control controlID="5" controlTypeID="com.balsamiq.mockups::PieChart" x="90" y="0" w="54" h="30" measuredW="180" measuredH="180" zOrder="5" locked="false" isInGroup="0"/>
               </groupChildrenDescriptors>
             </control>
-            <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="0" y="6" w="-1" h="-1" measuredW="47" measuredH="24" zOrder="1" locked="false" isInGroup="0">
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="0" y="6" w="-1" h="-1" measuredW="46" measuredH="24" zOrder="1" locked="false" isInGroup="0">
               <controlProperties>
                 <bold>true</bold>
                 <size>16</size>
@@ -49,7 +49,7 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="36" controlTypeID="__group__" x="715" y="134" w="101" h="25" measuredW="101" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="36" controlTypeID="__group__" x="715" y="134" w="100" h="25" measuredW="100" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
         <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="-1" h="-1" measuredW="56" measuredH="24" zOrder="0" locked="false" isInGroup="36">
           <controlProperties>
@@ -58,7 +58,7 @@
             <text>Over%20%20%3A</text>
           </controlProperties>
         </control>
-        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="77" y="1" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="1" locked="false" isInGroup="36">
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="77" y="1" w="-1" h="-1" measuredW="23" measuredH="24" zOrder="1" locked="false" isInGroup="36">
           <controlProperties>
             <bold>true</bold>
             <size>16</size>
@@ -67,7 +67,7 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="37" controlTypeID="__group__" x="682" y="271" w="220" h="106" measuredW="220" measuredH="106" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="37" controlTypeID="__group__" x="715" y="274" w="220" h="106" measuredW="220" measuredH="106" zOrder="9" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
         <control controlID="0" controlTypeID="com.balsamiq.mockups::ButtonBar" x="32" y="0" w="-1" h="-1" measuredW="172" measuredH="29" zOrder="0" locked="false" isInGroup="37">
           <controlProperties>
@@ -101,7 +101,7 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Label" x="715" y="213" w="-1" h="-1" measuredW="84" measuredH="24" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Label" x="715" y="213" w="-1" h="-1" measuredW="85" measuredH="24" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <color>4985136</color>
@@ -109,7 +109,7 @@
         <text>On%20Strike%20%3A</text>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::Label" x="715" y="238" w="-1" h="-1" measuredW="78" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Label" x="715" y="238" w="-1" h="-1" measuredW="76" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <color>4985136</color>
@@ -126,27 +126,51 @@
         <text>Baller%20%3A</text>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="799" y="189" w="-1" h="-1" measuredW="108" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="799" y="189" w="-1" h="-1" measuredW="112" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <size>16</size>
         <text>Shoaib%20Akhtar</text>
       </controlProperties>
     </control>
-    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="799" y="213" w="-1" h="-1" measuredW="132" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="799" y="213" w="-1" h="-1" measuredW="131" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <size>16</size>
         <text>Sachin%20Tendulkar</text>
       </controlProperties>
     </control>
-    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="799" y="237" w="-1" h="-1" measuredW="133" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="799" y="237" w="-1" h="-1" measuredW="131" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>true</bold>
         <size>16</size>
         <text>Virendra%20Sehwag</text>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::Canvas" x="362" y="111" w="313" h="281" measuredW="100" measuredH="70" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="50" controlTypeID="__group__" x="354" y="112" w="313" h="291" measuredW="313" measuredH="291" zOrder="10" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="313" h="291" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="50"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::DataGrid" x="0" y="24" w="312" h="117" measuredW="262" measuredH="113" zOrder="1" locked="false" isInGroup="50">
+          <controlProperties>
+            <text>Name%2CBowled%2CCatched%2CRuns%0AV.Sehwag%2CShoaib%20A.%2CS.%20malik%2C35%0AS.Tendulkar%2CShoaib%20A.%2CS.malik%2C23%0A%20</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::DataGrid" x="0" y="166" w="312" h="117" measuredW="241" measuredH="113" zOrder="2" locked="false" isInGroup="50">
+          <controlProperties>
+            <text>Name%2COvers%2CWickets%2CMaiden%0AShoaib%20A.%2C12%2C3%2C4%0AShami%2C12%2C1%2C2%0AInzmam%2C13%2C1%2C4</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="111" y="144" w="54" h="22" measuredW="54" measuredH="21" zOrder="3" locked="false" isInGroup="50">
+          <controlProperties>
+            <text>Team%20B</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="103" y="2" w="55" h="22" measuredW="55" measuredH="21" zOrder="4" locked="false" isInGroup="50">
+          <controlProperties>
+            <text>Team%20A</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
   </controls>
 </mockup>

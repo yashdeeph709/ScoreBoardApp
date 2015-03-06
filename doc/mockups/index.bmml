@@ -1,0 +1,26 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1096" measuredH="489" mockupW="921" mockupH="489">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="175" y="0" w="921" h="489" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1"/>
+    <control controlID="5" controlTypeID="__group__" x="238" y="96" w="237" h="63" measuredW="237" measuredH="63" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="48" y="0" w="189" h="33" measuredW="174" measuredH="33" zOrder="0" locked="false" isInGroup="5">
+          <controlProperties>
+            <size>24</size>
+            <text>ScoreBoardApp</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="48" y="30" w="189" h="33" measuredW="164" measuredH="20" zOrder="1" locked="false" isInGroup="5">
+          <controlProperties>
+            <size>12</size>
+            <text>Manage%20Your%20Scores%20In%20Ease%21</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="0" y="0" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="2" locked="false" isInGroup="5">
+          <controlProperties>
+            <icon>ThumbnailsIcon%7Clarge</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
