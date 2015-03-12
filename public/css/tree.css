@@ -1,0 +1,49 @@
+.metro-tile {
+	background-color: #D8512B;
+	border-color: #DC6241;
+	height: 90px;
+	padding: 5px;
+	color: #FFF;
+	font-family: sans-serif;
+	font-size: 12px;
+	border-width: 3px;
+	border-style: solid;
+	cursor: default;
+	-webkit-transition: 0.1s all;
+	-moz-transition: 0.1s all;
+	-ms-transition: 0.1s all;
+	transition: 0.1s all;
+}
+div.metro-tile:hover {
+	-webkit-transform: scale(0.87) perspective(400px) rotateY(0deg) rotateX(0deg);
+	-moz-transform: scale(0.87) perspective(400px) rotateY(0deg) rotateX(0deg);
+	-ms-transform: scale(0.87) perspective(400px) rotateY(0deg) rotateX(0deg);
+	transform: scale(0.87) perspective(400px) rotateY(0deg) rotateX(0deg);
+	border-width: 3px;
+	border-style:solid; 
+}
+.seperator{
+	height:20px;
+}
+.team{
+	background-color:#F0A30A;
+	border-color:white; 
+	height:30px;
+	border-width: 1.5px;
+}
+.team a{
+	color:white;
+	text-decoration: none;
+}
+.qualifier{
+	background-color:#60A917;
+	border-color:white; 
+}
+.semifinalist{
+	background-color:#008299;
+	border-color:white; 
+}
+.winner{
+	background-color:#34472C;
+	height:50px;	
+}

@@ -1,0 +1,53 @@
+.score li{
+	display: inline-block;
+}
+.score li span:first-child{
+	font-size: 40px;
+	font-weight: 800;
+}
+.score li span:last-child{
+	font-size:40px;
+	font-weight: 800;
+}
+div .ball{
+color:#222222;
+position: fixed;
+right:0px;
+padding:0px;
+list-style: none;
+}
+div .ball:first{
+color:#222222;
+padding:0px;
+list-style: none;
+}
+.ball span{
+margin-top: 6px;
+background: red;
+	border-radius: 40px;
+	list-style: none;
+	line-height: 40px;
+	display: block;
+width: 40px;
+height: 40px;
+font-size: 25px;
+font-weight: 200;
+text-align: center;
+font-family: Verdana; 
+box-shadow: 0px 0px 5px red;
+}
+
+.ball .wide{
+background: white;
+opacity:0.6;
+}
+.ball .noob{
+background:yellow;
+opacity:0.6;
+}
+li:hover{
+	-webkit-transition:all 2s;
+	cursor: pointer;
+	color:blue;
+	font-size: 30px;
+}
