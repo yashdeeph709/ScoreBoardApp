@@ -2,7 +2,7 @@ var app=angular.module('ScoreBoardApp');
 app.config(router);
 
 function router($routeProvider){
-$routeProvider.when('/',{templateUrl:'partials/Main.html'});
+$routeProvider.when('/',{templateUrl:'partials/home.html'});
 $routeProvider.when('/start',{templateUrl:'partials/MatchStart.html'});
 $routeProvider.when('/watch',{templateUrl:'partials/Watch.html'});
 $routeProvider.when('/loop',{templateUrl:'partials/MatchLoop.html'});
