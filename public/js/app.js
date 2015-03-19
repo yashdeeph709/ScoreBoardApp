@@ -1,4 +1,4 @@
-var app=angular.module('ScoreBoardApp',['ngRoute']);
+var app=angular.module('ScoreBoardApp',['ngRoute','ui.bootstrap']);
 
 app.controller('HomeController',function($scope,$location){
 	$scope.startMatch=function (){

@@ -1,74 +1,54 @@
-<legend>Team Details</legend>
+<div class="row">
+	<div class="col-md-12 view-header">
+		<h3>Team Entry</h3>
+	</div>
 <div class="col-md-6">
-	<form role="form">
-		<div class="form-group">
-			<label>Team Icon:</label>
-			<input type="file" >
-		</div>
-		<div class="form-group">
-			<label>Team Name:</label>
-			<input type="text" class="form-control" placeholder="Enter Team Name">
-		</div>
-		<div class="form-group">
-		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
-	<hr>
-<form  role="form">
-	<legend>Player Details:</legend>
-	<div class="form-group">
-		<input type="text" class="form-control" placeholder="Name">
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>S.No.</th>
+			<th>Icon</th>
+			<th>TeamName</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td><img src="http://lorempixel.com/80/80"></td>
+			<td>Chennai superkings</td>
+			<td>
+			<a href="#/playerentry">
+			<button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Enter Details</button></a></td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td><img src="http://lorempixel.com/80/80"></td>
+			<td>Chennai superkings</td>
+			<td><button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Enter Details</button></td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td><img src="http://lorempixel.com/80/80"></td>
+			<td>Chennai superkings</td>
+			<td><button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Enter Details</button></td>
+		</tr>
+	</tbody>
+</table>
 	</div>
-	<div class="form-group">
-		<input type="text" class="form-control" placeholder="age">
+	<div class="col-md-6">
+		<form role="form">
+			<div class="form-group">
+				<label>Team Icon:</label>
+				<input type="file" >
+			</div>
+			<div class="form-group">
+				<label>Team Name:</label>
+				<input type="text" class="form-control" placeholder="Enter Team Name">
+			</div>
+			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;&nbsp;Add Team</button>
+			<h3><button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;&nbsp;Team Entry Done</button></h3>
+		</form>
+		<hr>
 	</div>
-	<div class="form-group">
-		<select class="form-control">
-			<option>captain</option>
-			<option>vice-captain</option>
-			<option>wicket-keeper</option>
-			<option>batting</option>
-			<option>bowling</option>
-		</select>
-	</div>
-	<div class="form-group">
-	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;&nbsp;Add Player</button>
-	</div>
- </form>
-
-</div>
-<div class="col-md-6">
-<div class="table-responsive">
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>Player Name:</th>
-				<th>Age:</th>
-				<th>Position/Skill:</th>
-				<th>Action:</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Sachin Tendulkar</td>
-				<td>22</td>
-				<td>Batsman</td>
-				<td><button class="btn"><span class="glyphicon glyphicon-remove"></span></button></td>
-			</tr>
-			<tr>
-				<td>Mahendra Singh Dhooni</td>
-				<td>22</td>
-				<td>Batsman</td>
-				<td><button class="btn"><span class="glyphicon glyphicon-remove"></span></button></td>
-			</tr>
-			<tr>
-				<td>Suresh Raina</td>
-				<td>22</td>
-				<td>Batsman</td>
-				<td><button class="btn"><span class="glyphicon glyphicon-remove"></span></button></td>
-			</tr>
-
-		</tbody>
-	</table>
-</div>
 </div>
