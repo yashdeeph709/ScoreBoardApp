@@ -6,9 +6,9 @@
   "directories": {
     "doc": "doc"
   },
-  "engines":{
-    "node":"1.0.x"
-    },
+  "engines": {
+    "node": "1.0.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -31,9 +31,14 @@
   },
   "homepage": "https://github.com/yashdeeph709/ScoreBoardApp",
   "dependencies": {
+    "connect": "^3.3.5",
     "express": "^4.11.2",
-    "connect":"^3.3.5",
-    "serve-static":"^1.9.2"
+    "grunt": "^0.4.5",
+    "serve-static": "^1.9.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.12.2",
+    "grunt-contrib-uglify": "^0.8.0"
+  }
 }
