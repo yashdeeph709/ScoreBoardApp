@@ -6,7 +6,8 @@ app.factory('championship',function(){
 	"config":[],
 	"players":"12",
 	"teams":[{
-			"teamname":"",
+			"id":"1",
+			"teamname":"chennai superkings",
 			"players":[{
 				"playername":"",
 				"skills":["batting","bowling"],
@@ -41,6 +42,13 @@ app.factory('championship',function(){
 		this.config[0]=noob;
 		this.config[1]=wide;
 	 	this.config[2]=overstrike;	
+	},
+	getTeams:function(){
+		console.log(this.teams);
+		return this.teams;
+	},
+	addTeam:function(teamname){
+		this.teams[this.teams.length+1].teamname=teamname;
 	}
 	}
 });

@@ -13,25 +13,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
+		<tr ng-repeat="team in teams">
 			<td>1</td>
 			<td><img src="http://lorempixel.com/80/80"></td>
-			<td>Chennai superkings</td>
+			<td>{{team.teamname}}</td>
 			<td>
-			<a href="#/playerentry">
+			<a ng-href="#/playerentry?id=team.id">
 			<button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Enter Details</button></a></td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td><img src="http://lorempixel.com/80/80"></td>
-			<td>Chennai superkings</td>
-			<td><button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Enter Details</button></td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td><img src="http://lorempixel.com/80/80"></td>
-			<td>Chennai superkings</td>
-			<td><button class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Enter Details</button></td>
 		</tr>
 	</tbody>
 </table>
@@ -44,7 +32,7 @@
 			</div>
 			<div class="form-group">
 				<label>Team Name:</label>
-				<input type="text" class="form-control" placeholder="Enter Team Name">
+				<input type="text" class="form-control" placeholder="Enter Team Name" ng-model="teamname">
 			</div>
 			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;&nbsp;Add Team</button>
 			<h3><button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;&nbsp;Team Entry Done</button></h3>

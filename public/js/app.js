@@ -15,3 +15,9 @@ app.controller('CreateChCtrl',function($scope,$location,championship){
 		$location.path("/teamentry");
 	}
 });
+app.controller('TeamEntryCtrl',function($scope,$location,championship){
+	$scope.teams=championship.getTeams();
+	$scope.addTeam=function(){
+		championship.addTeam();
+	}
+});
