@@ -17,7 +17,11 @@ app.controller('CreateChCtrl',function($scope,$location,championship){
 });
 app.controller('TeamEntryCtrl',function($scope,$location,championship){
 	$scope.teams=championship.getTeams();
-	$scope.addTeam=function(){
-		championship.addTeam();
+	$scope.addTeam=function(teamname){
+		championship.addTeam(teamname);
+		$scope.teams=championship.getTeams();
 	}
+});
+app.controller('PlayerEntryCtrl',function($scope,$location,championship){
+	
 });

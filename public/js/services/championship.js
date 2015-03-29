@@ -5,22 +5,8 @@ app.factory('championship',function(){
 	"overs":"10",
 	"config":[],
 	"players":"12",
-	"teams":[{
-			"id":"1",
-			"teamname":"chennai superkings",
-			"players":[{
-				"playername":"",
-				"skills":["batting","bowling"],
-				"position":"opener"
-			},{
-				"playername":"",
-				"skills":["batting","bowling"],
-				"position":"captain"
-			}]
-			}],
-	"pointstable":[
-	
-	],
+	"teams":[],
+	"pointstable":[],
 	"matchlist":[{
 	"team1":"chennai superkings",
 	"team2":"rajasthan royals",
@@ -48,7 +34,8 @@ app.factory('championship',function(){
 		return this.teams;
 	},
 	addTeam:function(teamname){
-		this.teams[this.teams.length+1].teamname=teamname;
+		console.log(this.teams.length);
+		this.teams.push({"id":this.teams.length+1,"teamname":teamname,players:[]});
 	}
 	}
 });
