@@ -22,6 +22,9 @@ app.controller('TeamEntryCtrl',function($scope,$location,championship){
 		$scope.teams=championship.getTeams();
 	}
 });
-app.controller('PlayerEntryCtrl',function($scope,$location,championship){
-	
+app.controller('PlayerEntryCtrl',function($scope,$routeParams,$location,championship){
+	$scope.players=championship.getPlayers($routeParams["teamid"]);
+	$scope.addPlayer=function(name,skills,position){
+		championship.addPlayer($routeParams['teamid'],name,skills,position);
+	}
 });

@@ -9,7 +9,7 @@ $routeProvider.when('/loop',{templateUrl:'partials/MatchLoop.html'});
 $routeProvider.when('/championship',{templateUrl:'partials/createCship.html'});
 $routeProvider.when('/teamlist',{templateUrl:'partials/TeamList.html'});
 $routeProvider.when('/teamentry',{templateUrl:'partials/TeamEntry.html'});
-$routeProvider.when('/playerentry',{templateUrl:'partials/PlayerEntry.html'});
+$routeProvider.when('/playerentry/:teamid',{templateUrl:'partials/PlayerEntry.html'});
 $routeProvider.when('/credits',{templateUrl:'partials/credit.html'});
 }
 
