@@ -28,3 +28,9 @@ app.controller('PlayerEntryCtrl',function($scope,$routeParams,$location,champion
 		championship.addPlayer($routeParams['teamid'],name,skills,position);
 	}
 });
+app.controller('LoginCtrl',function(){
+	
+});
+app.controller('SignUpCtrl',function(){
+	
+});
