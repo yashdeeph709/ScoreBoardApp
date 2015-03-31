@@ -39,3 +39,24 @@ championships{
 	"inining2":["124","12","4"]
 	}],
 }
+Scoreboard{
+	team1:"indian",
+	team2:"pakistan",
+	inings:[{
+			batting:{
+			
+			},
+			bowling:{
+
+			}
+		},{
+			batting:{
+
+			},
+			bowling:{
+			
+			}
+		}
+	],
+
+}
