@@ -1,7 +1,7 @@
 <div class="row" ng-controller="PlayerEntryCtrl">
 	<div class="col-md-12 view-header">
 		<h3 class="pull-left">Player Entry:</h3>
-		<h3 class="pull-right">Chennai Superkings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#/teamentry"><button class="btn btn-info">Done!</button></a></h3>
+		<h3 class="pull-right">Chennai Superkings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a ui-sref="teamentry"><button class="btn btn-info">Done!</button></a></h3>
 	</div>
 	<div class="col-md-6">
 		<table class="table table-bordered table-hover">
@@ -38,7 +38,7 @@
 				<label>Position:</label>
 				<input type="text" ng-model="position" class="form-control" placeholder="Enter Position">
 			</div>
-			<button ng-click="addPlayer(name,skills,position)" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Submit</button>
+			<button ng-click="addPlayer(name,skills,position)" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add</button>
 		</form>
 	</div>
 </div>

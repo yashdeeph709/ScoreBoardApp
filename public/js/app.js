@@ -1,31 +1,31 @@
-var app=angular.module('ScoreBoardApp',['ngRoute','ui.bootstrap']);
+var app=angular.module('ScoreBoardApp',['ngRoute','ui.bootstrap','ui.router']);
 
-app.controller('HomeController',function($scope,$location){
+app.controller('HomeController',function($scope,$state){
 	$scope.startChampionship=function (){
-			$location.path("/championship");
+			$state.go("createcship");
 	}
 });
-app.controller('CreateChCtrl',function($scope,$location,championship){
+app.controller('CreateChCtrl',function($scope,$state,championship){
 	$scope.createChampionship=function(){		
 		championship.setChampionshipName($scope.championship.name);
 		championship.setOvers($scope.championship.overs);
 		championship.setPlayers($scope.championship.players);
 		championship.setConfig($scope.noob,$scope.wide,$scope.overstrike);
 		console.log(championship);
-		$location.path("/teamentry");
+		$state.go("teamentry");
 	}
 });
-app.controller('TeamEntryCtrl',function($scope,$location,championship){
+app.controller('TeamEntryCtrl',function($scope,championship){
 	$scope.teams=championship.getTeams();
 	$scope.addTeam=function(teamname){
 		championship.addTeam(teamname);
 		$scope.teams=championship.getTeams();
 	}
 });
-app.controller('PlayerEntryCtrl',function($scope,$routeParams,$location,championship){
-	$scope.players=championship.getPlayers($routeParams["teamid"]);
+app.controller('PlayerEntryCtrl',function($scope,$stateParams,$location,championship){
+	$scope.players=championship.getPlayers($stateParams["teamid"]);
 	$scope.addPlayer=function(name,skills,position){
-		championship.addPlayer($routeParams['teamid'],name,skills,position);
+		championship.addPlayer($stateParams['teamid'],name,skills,position);
 	}
 });
 app.controller('LoginCtrl',function(){
