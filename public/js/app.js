@@ -28,8 +28,14 @@ app.controller('PlayerEntryCtrl',function($scope,$stateParams,$location,champion
 		championship.addPlayer($stateParams['teamid'],name,skills,position);
 	}
 });
-app.controller('LoginCtrl',function(){
-	
+app.controller('LoginCtrl',function($scope,Login){
+	$scope.login=function(){
+	if(login.checkuser($scope.username,$scope.password)){
+		$state.go("dashboard");
+	}else{
+		$state.go("404");
+	}
+	}
 });
 app.controller('SignUpCtrl',function(){
 	
