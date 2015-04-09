@@ -17,6 +17,11 @@ $stateProvider.state('teamlist',{'url':'/teamlist',templateUrl:'partials/TeamLis
 $stateProvider.state('teamentry',{'url':'/teamentry',templateUrl:'partials/TeamEntry.html'});
 $stateProvider.state('playerentry',{'url':'/playerentry/:teamid',templateUrl:'partials/PlayerEntry.html'});
 $stateProvider.state('credits',{'url':'/credits',templateUrl:'partials/credit.html'});
+$stateProvider.state('activate',{'url':'/activate',templateUrl:'partials/activate.html'});
 $stateProvider.state('404',{'url':'/404',templateUrl:'partials/404.html'});
+app.run(function($window){
+	var params=$window.location.search.substring(1);
+	console.log(params);
+});
 }
 

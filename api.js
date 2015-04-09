@@ -1,8 +1,8 @@
 var express=require('express');
 var router=express.Router();
 var mongoClient=require('mongodb').MongoClient;
-
 var url="mongodb://localhost:27017/scoreboard";
+
 
 mongoClient.connect(url,function(err,db){
 	if(err==null){
@@ -12,23 +12,9 @@ mongoClient.connect(url,function(err,db){
 	}
 });
 
-router.get('/',function(req,res){
-
-});
-router.get('/Champioship',function(req,res){
-
-});
-router.get('/Champioship',function(){
-
-});
-router.get('/Champioship',function(){
-
-});
-router.get('/Champioship',function(){
-
-});
-router.get('/Champioship',function(){
-
+router.get('/api/signup',function(){
+      var username=req.params.username;
+      var 	
 });
 
 module.exports=router;

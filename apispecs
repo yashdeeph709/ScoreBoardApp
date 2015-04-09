@@ -1,0 +1,30 @@
+Championship Post{
+	Cname:,
+	organizer:,
+	desc:,
+	overs:,
+	players:,
+	config:[]
+}
+TeamEntry Post{
+	cid:,
+	image:,
+	TeamName:,
+}
+PlayerEntry Post{
+	cid:,
+	tid:,
+	pname:,
+	skills:[],
+	position:
+}
+Login Post{
+	username:,
+	Password:,
+}
+SignUp Post{
+	Username:,
+	Lastname:,
+	EmailID:,
+	Password:,
+}

@@ -17,9 +17,10 @@
 				<input type="checkbox" ng-model="remember">
 				<label>Remember me</label>
 			</div>
-			<button type="submit" ng-click="login()" class="btn btn-primary">Login</button>
-			<button type="submit" class="btn btn-primary">Forget Password</button>
+			<button ng-click="login()" class="btn btn-primary">Login</button>
+			<button class="btn btn-primary">Forget Password</button>
 		</form>
+		<div ng-show="message" class="alert alert-warning"> <span class="glyphicon glyphicon-warning-sign"></span> Oh Oh! {{message}}</div>
 		</div>
 	</div>
 	<div class="col-md-6" ng-controller="SignUpCtrl">
@@ -51,8 +52,10 @@
 				<input type="password" class="form-control input-sm" placeholder="Enter Repeat Password">
 			</div>
 
-			<button type="submit" class="btn btn-primary">Sign Up!</button>
+			<button data-ng-click="signup()" class="btn btn-primary">Sign Up!</button>
 		</form>
+		<div ng-show="message" class="alert alert-warning"> <span class="glyphicon glyphicon-warning-sign"></span> Oh Oh! {{message}}</div>
 		</div>		
+		<button type="button" ng-click="googleauth()" class="btn btn-lg btn-info">Join Us With Google</button>	
 	</div>
 </div>

@@ -31,9 +31,40 @@ app.controller('PlayerEntryCtrl',function($scope,$stateParams,$location,champion
 });
 app.controller('LoginCtrl',function($scope,$state){	
 	$scope.login=function(){
+		if($scope.username==null || $scope.password==null){
+			$scope.flag=false;
+			$scope.message="username or password empty";
+		}
+		if(!$scope.flag){
 		$state.go('dashboard.startmatch');
+		}
 	}
 });
-app.controller('SignUpCtrl',function(){
-	
+app.controller('SignUpCtrl',function($scope,$state,$window){
+		var urlbuilder=[];
+		urlbuilder.push("response_type=code",
+			"client_id=482231649292-7rgjv9rl0g07s3ut7if17p1093e9rigs.apps.googleusercontent.com",
+			"redirect_uri="+$window.location.origin,
+			"scope=profile email")
+
+		$scope.googleauth=function(){
+			var url="https://accounts.google.com/o/oauth2/auth?"+urlbuilder.join('&');
+			var options="width=500,height=500,left="+($window.outerWidth-500)/2+",top=100";
+			$window.open(url,'',options);
+		}
+		$scope.signup=function(){
+		if($scope.firstname==null || $scope.lastname==null || $scope.email==null || $scope.password==null){
+			$scope.flag=false;
+			$scope.message="fill all required fields";
+		}
+		if($scope.password!=$scope.repeat){
+			$scope.flag=false;
+			$scope.message="Passwords donot match";
+		}
+		if(!$scope.flag){
+		$state.go('activate');
+		}
+
+		}
 });
+		
