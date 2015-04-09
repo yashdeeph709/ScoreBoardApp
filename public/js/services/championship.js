@@ -2,6 +2,8 @@ var app=angular.module('ScoreBoardApp');
 app.factory('championship',function(){
 	return{
 	"ChampionShip_Name":"IPL",
+	"organizer":"",
+	"description":"",
 	"overs":"10",
 	"config":[],
 	"players":"12",
@@ -34,6 +36,10 @@ app.factory('championship',function(){
 	},
 	addTeam:function(teamname){
 		this.teams.push({"id":this.teams.length+1,"teamname":teamname,"players":[]});
+	},
+	setMeta:function(organizer,description){
+		this.organizer=organizer;
+		this.description=description;
 	}
 	}
 });

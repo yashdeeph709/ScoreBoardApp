@@ -9,6 +9,16 @@
 				<input ng-required="true" type="text" class="form-control" ng-model="championship.name" placeholder="Enter Championship Name" required="true">
 			</div>
 			<div class="form-group">
+				<label>Organizers Name:</label>
+				<input ng-required="true" class="form-control" required ng-model="championship.organizer" type="text" placeholder="Overs for championship">
+			</div>
+			<div class="form-group">
+				<label>Description</label>
+				<br>
+				<textarea class="form-control" ng-model="championship.description" placeholder="Short Description of the Championship"></textarea>
+			</div>
+
+			<div class="form-group">
 				<label>No. of Overs</label>
 				<input ng-required="true" class="form-control" required ng-model="championship.overs" type="text" placeholder="Overs for championship">
 			</div>

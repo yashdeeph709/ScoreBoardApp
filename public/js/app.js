@@ -11,6 +11,7 @@ app.controller('CreateChCtrl',function($scope,$state,championship){
 		championship.setOvers($scope.championship.overs);
 		championship.setPlayers($scope.championship.players);
 		championship.setConfig($scope.noob,$scope.wide,$scope.overstrike);
+		championship.setMeta($scope.championship.organizer,$scope.championship.description);
 		console.log(championship);
 		$state.go("teamentry");
 	}
