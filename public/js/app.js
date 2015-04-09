@@ -43,7 +43,7 @@ app.controller('LoginCtrl',function($scope,$state){
 app.controller('SignUpCtrl',function($scope,$state,$window){
 		var urlbuilder=[];
 		urlbuilder.push("response_type=code",
-			"client_id=482231649292-7rgjv9rl0g07s3ut7if17p1093e9rigs.apps.googleusercontent.com",
+			"client_id=482231649292-r15jbpgbg5kukb4aorgr0dlk4odjh1sa.apps.googleusercontent.com",
 			"redirect_uri="+$window.location.origin,
 			"scope=profile email")
 
