@@ -4,6 +4,9 @@ app.config(router);
 function router($stateProvider,$urlRouterProvider,$locationProvider){
 $stateProvider.state('home',{'url':'/',templateUrl:'partials/home.html'});
 $stateProvider.state('dashboard',{'url':'/dashboard',templateUrl:'partials/Dashboard.html'});
+$stateProvider.state('dashboard.startmatch',{'url':'/startmatch',templateUrl:'partials/startmatch.html'});
+$stateProvider.state('dashboard.pointstable',{'url':'/pointstable',templateUrl:'partials/pointstable.html'});
+$stateProvider.state('dashboard.history',{'url':'/history',templateUrl:'partials/history.html'});
 $stateProvider.state('matchstart',{'url':'/start',templateUrl:'partials/MatchStart.html'});
 $stateProvider.state('joinus',{'url':'/joinus',templateUrl:'partials/JoinUs.html'});
 $stateProvider.state('watch',{'url':'/watch',templateUrl:'partials/Watch.html'});

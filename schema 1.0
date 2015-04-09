@@ -1,44 +1,36 @@
 
-championships{
-	"ChampionShip_Name":"IPL",
-	"overs":"10",
-	"config":[true,true,true],
-	"NoofTeams":12,
-	"teams":[{
-			"teamname":"chennai superkings",
-			"players":[{
-				"playername":"sachin tendulkar",
-				"skills":["batting","bowling"],
-				"position":"opener"
-			},{
-				"playername":"rahul dravid",
-				"skills":["batting","bowling"],
-				"position":"captain"
-			}]
-			},{
-			"teamname":"rajasthan royals",
-			"players":[{
-				"playername":"virendra sehwag",
-				"skills":["batting","bowling"],
-				"position":"opener"
-			},{
-				"playername":"ishant sharma",
-				"skills":["batting","bowling"],
-				"position":"captain"
-			}]
-			}],
-	"pointstable":[
-	
-	],
-	"matchlist":[{
-	"team1":"chennai superkings",
-	"team2":"rajasthan royals",
-	"winner":"rajasthan royals",
-	"winningtag":"rajsthan royals won by 10"
-	"inining1":["123","45.5","5"],
-	"inining2":["124","12","4"]
-	}],
-}
+	championships{
+		"ChampionShip_Name":"IPL",
+		"overs":"10",
+		"config":[true,true,true],
+		"NoofTeams":12,
+		"teams":[{
+				"teamname":"chennai superkings",
+				"players":[{
+					"playername":"sachin tendulkar",
+					"skills":["batting","bowling"],
+					"position":"opener"
+				}]
+				},{
+				"teamname":"rajasthan royals",
+				"players":[{
+					"playername":"virendra sehwag",
+					"skills":["batting","bowling"],
+					"position":"opener"
+				}]
+				}],
+		"pointstable":[
+		
+		],
+		"matchlist":[{
+		"team1":"chennai superkings",
+		"team2":"rajasthan royals",
+		"winner":"rajasthan royals",
+		"winningtag":"rajsthan royals won by 10"
+		"inining1":["123","45.5","5"],
+		"inining2":["124","12","4"]
+		}]
+	}
 Scoreboard{
 	team1:"indian",
 	team2:"pakistan",

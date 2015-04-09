@@ -1,37 +1,11 @@
 <div class="row">
 <div class="col-md-3">
 	<ul class="nav nav-pills nav-stacked">
-	  <li role="presentation" class="active"><a href="#">Start Match</a></li>
-	  <li role="presentation"><a href="#">Points Table</a></li>
-	  <li role="presentation"><a href="#">Matches History</a></li>
-	  <li role="presentation"><a href="#">Create Championship</a></li>
+	  <li role="presentation" class="active"><a ui-sref=".startmatch">Start Match</a></li>
+	  <li role="presentation"><a ui-sref=".pointstable">Points Table</a></li>
+	  <li role="presentation"><a ui-sref=".history">Matches History</a></li>
+	  <li role="presentation"><a ui-sref=".createcship">Create Championship</a></li>
 	</ul>
 </div>
-<div class="col-md-9"><form>
-	<div class="row">
-	<div class="form-group form-inline col-xs-offset-3">
-	<h1>SetUp Match:</h1>
-	</div>
-	<div class="form-group col-xs-6  col-xs-offset-3">
-		<input type="text" ng-model="team1" class="form-control" placeholder="Team 1 name">
-		<img class="col-xs-offset-5" src="img\photo.jpg" height="60" >
-		<input type="text" ng-model="team2" class="form-control" placeholder="Team 2 name">
-	</div>
-	<div class="form-group col-xs-6 col-xs-offset-3">
-	<label class="control-label">Opening Pair</label>
-	<input type="text" class="form-control" ng-model="onstrike" placeholder="OnStrike Batsman">
-	<input type="text" class="form-control" ng-model="offstrike" placeholder="OffStrike Batsman">
-	</div>
-	<div class="form-group col-xs-6 col-xs-offset-3">
-	<label class="control-label">Bowler:</label>
-	<input type="text" class="form-control" ng-model="bowler" placeholder="Bowler Name">
-	</div>
-	</div>
-	<div class="row">
-	<div class="form-group col-xs-6 col-xs-offset-5">
-	<a href="#\setup" ng-click="submit()" class="btn btn-primary">Start Match!</a>
-	<input type="reset" class="btn btn-primary">
-	</div>
-	</div>
-</form></div>
+<div ui-view></div>
 </div>
