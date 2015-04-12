@@ -1,5 +1,5 @@
 app.controller('SignUpCtrl',function($scope,$state,$window,$http){
-		var client_id="482231649292-r15jbpgbg5kukb4aorgr0dlk4odjh1sa.apps.googleusercontent.com";
+		var client_id="482231649292-264315ptdfenu1qpana70japcgus12v4.apps.googleusercontent.com";
 		var redirect=$window.location.origin;
 		var urlbuilder=[];
 		urlbuilder.push("response_type=code",
