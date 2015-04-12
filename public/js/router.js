@@ -19,9 +19,16 @@ $stateProvider.state('playerentry',{'url':'/playerentry/:teamid',templateUrl:'pa
 $stateProvider.state('credits',{'url':'/credits',templateUrl:'partials/credit.html'});
 $stateProvider.state('activate',{'url':'/activate',templateUrl:'partials/activate.html'});
 $stateProvider.state('404',{'url':'/404',templateUrl:'partials/404.html'});
-app.run(function($window){
-	var params=$window.location.search.substring(1);
-	console.log(params);
-});
 }
+
+app.run(function ($window){
+var params=$window.location.search.substring(1);
+		if(params && $window.opener && $window.opener.location.origin==$window.location.origin){
+			var pair=params.split('=');
+			var code=decodeURIComponent(pair[1]);
+				console.log(params);
+			$window.opener.postMessage(code,$window.location.origin);
+		}
+console.log("params is"+params);
+});
 
