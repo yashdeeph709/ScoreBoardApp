@@ -1,5 +1,5 @@
 var app=angular.module('ScoreBoardApp');
-app.factory('championship',function($http){
+app.factory('championship',function($http,$resource){
 	return{
 	"ChampionShip_Name":"IPL",
 	"organizer":"",
@@ -19,7 +19,7 @@ app.factory('championship',function($http){
 	 	this.config[2]=overstrike;	
 	 	this.organizer=organizer;
 	 	this.description=desc;
-	 	$http.post('api/createcship',{
+	 	$http.post('api/championship',{
 	 		"chamname":this.ChampionShip_Name,
 	 		"overs":this.overs,
 	 		"players":this.players,
@@ -30,9 +30,21 @@ app.factory('championship',function($http){
 	},
 	addPlayer:function(id,name,skills,position){
 		this.teams[id-1].players.push({"id":this.teams[id-1].players.length+1,"name":name,"skills":skills,"position":position});
+		$http.post('api/addPlayer',{
+			"chamid":"",
+			"teamID":id-1,
+			"name":"",
+			"skills":"",
+			"position":""
+		});
 	},
 	addTeam:function(teamname){
 		this.teams.push({"id":this.teams.length+1,"teamname":teamname,"players":[]});
+		$http.post('api/addTeam',{
+	 			"id":this.teams.length,
+	 			"teamname":teamname,
+	 			"players":[]
+	 	});
 	},
 	getTeams:function(){
 		console.log(this.teams);
@@ -40,6 +52,9 @@ app.factory('championship',function($http){
 	},
 	getPlayers:function(id){
 		return this.teams[id-1].players;
+	},
+	getChampionships:function(){
+		return $resource('api/championship',{},{query:{method:'GET',isArray:true}}).query();
 	}
 	}
 });

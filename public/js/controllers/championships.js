@@ -1,5 +1,3 @@
-app.controller('championships',function($scope,$http){
-	$scope.post=function(){
-		$http.post('/api/addTeam');
-	}
+app.controller('championships',function($scope,championship){
+	$scope.datas=championship.getChampionships();
 });

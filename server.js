@@ -3,11 +3,13 @@ var app = express();
 var api=require('./api');
 var oauth=require('./oauth');
 var bodyParser = require('body-parser');
+var cookie=require('cookie-parser');
 var os=require('os');
 
 console.log(os.hostname());
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.json());
+app.use(cookie());
 app.use(express.static('./public'));
 app.use('/partials', express.static(__dirname + './partials'));
 app.use('/api',api);
