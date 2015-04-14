@@ -4,11 +4,7 @@ var mongoose = require('mongoose');
 var championship = require('./models/championship');
 var os = require('os');
 
-if (os.hostname() == "Vengicx") {
-    mongoose.connect("mongodb://localhost:27017/scoreboard");
-} else {
-    mongoose.connect("mongodb://UiOcsrnnsovG:wDjzlUlcKbgd@mongosoup-cont002.mongosoup.de:32546/cc_UiOcsrnnsovG");
-}
+mongoose.connect("mongodb://UiOcsrnnsovG:wDjzlUlcKbgd@mongosoup-cont002.mongosoup.de:32546/cc_UiOcsrnnsovG");
 
 router.post('/championship', function(req, res) {
     var newChampionship = new championship({
