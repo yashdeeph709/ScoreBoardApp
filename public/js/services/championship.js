@@ -29,13 +29,17 @@ app.factory('championship',function($http,$resource){
 	 	});
 	},
 	addPlayer:function(id,name,skills,position){
-		this.teams[id-1].players.push({"id":this.teams[id-1].players.length+1,"name":name,"skills":skills,"position":position});
+		this.teams[id-1].players.push({
+			"id":this.teams[id-1].players.length+1,
+			"name":name,
+			"skills":skills,
+			"position":position
+		});
 		$http.post('api/addPlayer',{
-			"chamid":"",
-			"teamID":id-1,
-			"name":"",
-			"skills":"",
-			"position":""
+			"teamid":id,
+			"pname":name,
+			"skills":skills,
+			"position":position
 		});
 	},
 	addTeam:function(teamname){

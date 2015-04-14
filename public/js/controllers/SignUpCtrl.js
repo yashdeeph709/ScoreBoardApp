@@ -1,39 +1,32 @@
-app.controller('SignUpCtrl',function($scope,$state,$window,$http){
-		var client_id="482231649292-6caqino00d0fcd5feg1ufpk7n15chp4f.apps.googleusercontent.com";
-		var redirect=$window.location.origin;
-		var urlbuilder=[];
-		urlbuilder.push("response_type=code",
-			"client_id="+client_id,
-			"redirect_uri="+redirect,
-			"scope=profile email")
-
-		$scope.googleauth=function(){
-			var url="https://accounts.google.com/o/oauth2/auth?"+urlbuilder.join('&');
-			var options="width=500,height=500,left="+($window.outerWidth-500)/2+",top=100";
-			var popup=$window.open(url,'',options);
-			$window.focus();
-			$window.addEventListener('message',function(event){
-					console.log(event.data);
-					var code=event.data;
-					popup.close();
-					$http.post('o/auth/google',{
-						"code":code,
-						"client_id":client_id,
-						"redirectUri":redirect
-					});
-			});
-		}
+app.controller('SignUpCtrl',function($scope,$state,$timeout,Signup){
 		$scope.signup=function(){
-		if($scope.firstname==null || $scope.lastname==null || $scope.email==null || $scope.password==null){
-			$scope.flag=false;
-			$scope.message="fill all required fields";
+		if(Signup.create($scope.fname,$scope.lname,$scope.email,$scope.password,$scope.repeat)){
+		console.log("service create called with mailid"+$scope.email);
+			$state.go('activate');
+		}else{
+			$scope.flag=true;
+			$scope.message=Signup.getLastMessage();
+			$timeout.setInterval(function(){
+				$scope.flag=false;
+			},5000);
 		}
-		if($scope.password!=$scope.repeat){
-			$scope.flag=false;
-			$scope.message="Passwords donot match";
-		}
-		if(!$scope.flag){
-		$state.go('activate');
-		}
-		}
+		};
+		$scope.passCheck=function(){
+			console.log('passcheck called');
+		     var desc = new Array();
+		     desc[0] = "Very Weak";
+		     desc[1] = "Weak";
+		     desc[2] = "Better";
+		     desc[3] = "Medium";
+		     desc[4] = "Strong";
+		     desc[5] = "Strongest";
+			 var score   = 0;
+		     if ($scope.password.length > 6) score++;
+		     if ( ( $scope.password.search(/[a-z]/) ) && ( $scope.password.search(/[A-Z]/) ) ) score++;
+		     if ($scope.password.search(/\d+/)) score++;
+		     if ( $scope.password.search(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) ) score++;
+		     if ($scope.password.length > 12) score++;
+		     $scope.strengthMsg = desc[score];
+		     $scope.className = "strength" + score;
+		};
 });
