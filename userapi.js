@@ -17,7 +17,7 @@ router.post('/user', function(req, res) {
         "verify": verificationCode
     });
     var message = {
-        "html": "<a href='http://127.0.0.1:5000/userapi/verify/" + verificationCode + "'>for activating your scoreboard account click here!</a></body><html>",
+        "html": "<a href='http://scoreboardv.heroku.com/userapi/verify/" + verificationCode + "'>for activating your scoreboard account click here!</a></body><html>",
         "subject": "Scoreboard Email ID verification Mail!",
         "from_email": "yashdeeph709@gmail.com",
         "from_name": "Yashdeep Hinge",
@@ -77,8 +77,7 @@ router.get('/verify/:code', function(req, res) {
             console.log("Errors:"+err+"/n Data:"+data);
             if(!err && data!=null){
             res.cookie('uid', ""+data._id, {
-                maxAge: 10000,
-                httpOnly: true
+                maxAge: 10000
             });
                 res.send({'success':1});
             }else{

@@ -19,6 +19,7 @@ $stateProvider.state('playerentry',{'url':'/playerentry/:teamid',templateUrl:'pa
 $stateProvider.state('credits',{'url':'/credits',templateUrl:'partials/credit.html'});
 $stateProvider.state('activate',{'url':'/activate',templateUrl:'partials/activate.html'});
 $stateProvider.state('404',{'url':'/404',templateUrl:'partials/404.html'});
+$urlRouterProvider.otherwise('/');
 }
 
 app.run(function ($window){
