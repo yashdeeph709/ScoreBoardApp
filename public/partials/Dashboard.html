@@ -1,10 +1,11 @@
-<div class="row">
-<div class="col-md-3">
+<div class="row" ng-controller="dashboardCtrl">
+<div class="col-md-3" >
 	<ul class="nav nav-pills nav-stacked">
 	  <li role="presentation" class="active"><a ui-sref=".startmatch">Start Match</a></li>
 	  <li role="presentation"><a ui-sref=".pointstable">Points Table</a></li>
 	  <li role="presentation"><a ui-sref=".history">Matches History</a></li>
 	  <li role="presentation"><a ui-sref="createcship">Create Championship</a></li>
+	  <li role="presentation"><a href="userapi/logout">Logout</a></li>
 	</ul>
 </div>
 <div ui-view></div>

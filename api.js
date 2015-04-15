@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var championship = require('./models/championship');
 var os = require('os');
 
-mongoose.connect("mongodb://UiOcsrnnsovG:wDjzlUlcKbgd@mongosoup-cont002.mongosoup.de:32546/cc_UiOcsrnnsovG");
+//mongoose.connect("mongodb://UiOcsrnnsovG:wDjzlUlcKbgd@mongosoup-cont002.mongosoup.de:32546/cc_UiOcsrnnsovG");
+mongoose.connect("mongodb://localhost:27017/scoreboard");
 
 router.post('/championship', function(req, res) {
     var newChampionship = new championship({

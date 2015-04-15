@@ -4,7 +4,8 @@ var UserSchema=new Schema({
         "firstname":String,
         "lastname":String,
         "emailid":String,
-        "password":String
+        "password":String,
+        "verify":Number
 });
 var signup=mongoose.model('signup',UserSchema);
 module.exports=signup;
