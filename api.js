@@ -4,8 +4,10 @@ var mongoose = require('mongoose');
 var championship = require('./models/championship');
 var os = require('os');
 if(process.env.PORT!=5000){
+    console.log('wrong try');
     mongoose.connect("mongodb://localhost:27017/scoreboard");
 }else{
+    console.log('right try');
 //mongoose.connect("mongodb://UiOcsrnnsovG:wDjzlUlcKbgd@mongosoup-cont002.mongosoup.de:32546/cc_UiOcsrnnsovG");
 mongoose.connect(process.env.MONGOLAB_URI);
 }
