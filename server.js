@@ -7,7 +7,6 @@ var cookie=require('cookie-parser');
 var userapi=require('./userapi');
 var os=require('os');
 
-console.log(os.hostname());
 app.set('port', (process.env.PORT || 5000));
 /* middlewares used */
 app.use(bodyParser.json());

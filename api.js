@@ -3,8 +3,13 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var championship = require('./models/championship');
 var os = require('os');
+if(process.env.deploy){
+console.log('wrong try');
 mongoose.connect(process.env.MONGOLAB_URI);
-
+}else{
+console.log('right try')
+mongoose.connect('mongodb://localhost:27017/scoreboard');
+}
 router.post('/championship', function(req, res) {
     var newChampionship = new championship({
         "user": "default",
