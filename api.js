@@ -7,7 +7,7 @@ if(process.env.PORT!=5000){
     mongoose.connect("mongodb://localhost:27017/scoreboard");
 }else{
 //mongoose.connect("mongodb://UiOcsrnnsovG:wDjzlUlcKbgd@mongosoup-cont002.mongosoup.de:32546/cc_UiOcsrnnsovG");
-mongoose.connect("mongodb://heroku_app34828782:12345678@ds061721.mongolab.com:61721/heroku_app34828782");
+mongoose.connect("mongodb://heroku_app34828782:yash12345678@ds061721.mongolab.com:61721/heroku_app34828782");
 }
 router.post('/championship', function(req, res) {
     var newChampionship = new championship({
