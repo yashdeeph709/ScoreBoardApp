@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var signup = require('./models/signup');
 var login = require('./models/login');
 var mandrill = require('mandrill-api/mandrill');
+var jwt=require('services/jwt.js');
 
 mandrill_client = new mandrill.Mandrill('g0ztvmVrxFHb8--EWZA8Ag');
 router.post('/user', function(req, res) {
