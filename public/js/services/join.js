@@ -1,6 +1,6 @@
 var app = angular.module('ScoreBoardApp');
 
-app.factory('Signup', function($http) {
+app.factory('Signup', function($http,authToken) {
     return {
         "FirstName": "",
         "LastName": "",
@@ -37,11 +37,13 @@ app.factory('Signup', function($http) {
             this.password = password;
             this.repeat = repeat;
             if (this.validate()) {
-                $http.post('/userapi/user', {
+                $http.post('/userapi/register', {
                     'fname': this.FirstName,
                     'lname': this.LastName,
                     'email': this.email,
                     'password': this.password
+                }).success(function(res){
+                    authToken.setToken(res.token);
                 });
                 return true;
             }else{

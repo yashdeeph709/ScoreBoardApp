@@ -10,9 +10,10 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li ng-class="home"><a ng-click="nav(1)" ui-sref="home">Home!</a></li>
-                        <li ng-class="cham"><a ng-click="nav(2)" ui-sref="championships">Championships!</a></li>
-                        <li ng-class="join"><a ng-click="nav(3)" ui-sref="joinus">Join us!</a></li>
+                        <li><a ui-sref="home">Home!</a></li>
+                        <li><a ui-sref="championships">Championships!</a></li>
+                        <li><a ng-if="!isAuthenticated()" ui-sref="joinus">Join us!</a></li>
+                        <li><a ng-if="isAuthenticated()" ui-sref="logout" >Logout</a></li>
                     </ul>
                 </div>
             </nav>

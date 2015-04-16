@@ -9,7 +9,7 @@ exports.encode=function(payload, secret){
 
 }
 function sign(str,key){
-	return cryptoCreateHmac('sha256',key).update(str).digest('base64');
+	return crypto.createHmac('sha256',key).update(str).digest('base64');
 }
 function base64Encode(str){
  	return new Buffer(str).toString('base64');

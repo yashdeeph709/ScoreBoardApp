@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var signup = require('./models/signup');
 var login = require('./models/login');
 var mandrill = require('mandrill-api/mandrill');
-var jwt=require('services/jwt.js');
+var jwt=require('./services/jwt.js');
 
 mandrill_client = new mandrill.Mandrill('g0ztvmVrxFHb8--EWZA8Ag');
-router.post('/user', function(req, res) {
+router.post('/register', function(req, res) {
 
     var verificationCode = Math.floor(Math.random() * 100000000);
     var newUser = new signup({
@@ -31,16 +31,16 @@ router.post('/user', function(req, res) {
             "Reply-To": "noreply@example.com"
         }
     };
+    var payload={
+        iss:req.hostname,
+        sub:newUser._id
+    };
+    var token=jwt.encode(payload,"shh...");
+    
     mandrill_client.messages.send({"message": message},
     function(result){console.log(result);}, function(e) {console.log( e.name + ' - ' + e.message);});
     newUser.save(function(err, data) {
-        if (!err) {
-            console.log(data);
-            res.end();
-        } else {
-            console.log(err);
-            res.end();
-        }
+        res.status(200).send({user:newUser.emailid,token:token})
     });
 });
 
