@@ -1,13 +1,17 @@
-app.controller('LoginCtrl',function($scope,$state,$window,$http){	
-	$scope.login=function(){
+app.controller('LoginCtrl',function($scope,$state,$window,$http,ipCookie){	
+		console.log(ipCookie('uid'));
+		if(ipCookie('uid')!=undefined){
+			console.log('cookie checked')
+			$state.go('dashboard.startmatch');
+		}
+$scope.login=function(){
 		var result;
 		$http.get('/userapi/user/'+$scope.username+'/'+$scope.password).success(function(data){
-
 			if(data.success==1){
 					console.log("login successful");
 					$state.go('dashboard.startmatch');
 			}
-		});
+	});
 };
 
 		var client_id="482231649292-6caqino00d0fcd5feg1ufpk7n15chp4f.apps.googleusercontent.com";
@@ -34,6 +38,5 @@ app.controller('LoginCtrl',function($scope,$state,$window,$http){
 					});
 			});
 		}
-	
 });
 		

@@ -22,7 +22,7 @@ $stateProvider.state('404',{'url':'/404',templateUrl:'partials/404.html'});
 $urlRouterProvider.otherwise('/');
 }
 
-app.run(function ($window){
+app.run(function ($window,ipCookie){
 var params=$window.location.search.substring(1);
 		if(params && $window.opener && $window.opener.location.origin==$window.location.origin){
 			var pair=params.split('=');
@@ -30,6 +30,5 @@ var params=$window.location.search.substring(1);
 				console.log(params);
 			$window.opener.postMessage(code,$window.location.origin);
 		}
-console.log("params is"+params);
 });
 

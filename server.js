@@ -13,7 +13,12 @@ app.use(bodyParser.json());
 app.use(cookie());
 app.use(express.static('./public'));
 app.use('/partials', express.static(__dirname + './partials'));
-
+app.use(function(req,res,next){
+	res.header('Access-Control-Allow-Origin','*');
+	res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+	res.header('Access-Control-Allow-Headers','Content-Type,Authorization');
+	next();
+});
 /* api paths */
 app.use('/api',api);
 app.use('/userapi',userapi);

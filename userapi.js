@@ -30,14 +30,8 @@ router.post('/user', function(req, res) {
             "Reply-To": "noreply@example.com"
         }
     };
-    mandrill_client.messages.send({
-        "message": message,
-    }, function(result) {
-        console.log(result);
-    }, function(e) {
-        console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
-    });
-
+    mandrill_client.messages.send({"message": message},
+    function(result){console.log(result);}, function(e) {console.log( e.name + ' - ' + e.message);});
     newUser.save(function(err, data) {
         if (!err) {
             console.log(data);
@@ -50,45 +44,49 @@ router.post('/user', function(req, res) {
 });
 
 router.get('/verify/:code', function(req, res) {
-        console.log('verification url called with '+req.params.code);
-        signup.findOne({
-                'verify': req.params.code
-            }, function(err, data) {
-               console.log(data); 
-                if(!err){
-                    var verify=new login({
-                        'emailid':data.emailid,
-                        'password':data.password
-                    });
-                    verify.save(function(err,data){
-                        if(!err){
-                            res.send("<h1>Verification Successful</h1>")
-                        }else{
-                            res.send("<h1>Verification error occured</h1>")
-                        }
-                    })
+    console.log('verification url called with '+req.params.code);
+    signup.findOne({
+        'verify': req.params.code
+    }, function(err, data) {
+        if (!err) {
+            var verify = new login({
+                'emailid': data.emailid,
+                'password': data.password
+            });
+            verify.save(function(err, data) {
+                if (!err) {
+                    res.send("<h1>Verification Successful</h1>")
                 } else {
-                    console.log(err);
-                }});
-        });
+                    res.send("<h1>Verification error occured</h1>")
+                }
+            })
+        } 
+    });
+});
 
-    router.get('/user/:email/:password',function(req, res) {
-        login.findOne({'emailid':req.params.email,'password':req.params.password},function(err,data){
-            console.log("Errors:"+err+"/n Data:"+data);
-            if(!err && data!=null){
-            res.cookie('uid', ""+data._id, {
+router.get('/user/:email/:password', function(req, res) {
+    login.findOne({
+        'emailid': req.params.email,
+        'password': req.params.password
+    }, function(err, data) {
+        if (!err && data != null) {
+            res.cookie('uid', "" + data._id, {
                 maxAge: 10000
             });
-                res.send({'success':1});
-            }else{
-                res.send({'success':0});
-            }
-        })
-   
-    });
-    router.get('/logout',function(req,res){
-        res.clearCookie('uid');
-        res.clearCookie('cid')
-        res.redirect('/');
-    });
-    module.exports = router;
+            res.send({
+                'success': 1
+            });
+        } else {
+            res.send({
+                'success': 0
+            });
+        }
+    })
+
+});
+router.get('/logout', function(req, res) {
+    res.clearCookie('uid');
+    res.clearCookie('cid')
+    res.redirect('/');
+});
+module.exports = router;
