@@ -8,6 +8,20 @@ exports.encode=function(payload, secret){
  	return jwt+'.'+sign(jwt,secret);
 
 }
+exports.decode=function(token,secret){
+	var segments=token.split('.');
+	if(segments.length!==3)
+		throw new Error("Token structure incorrect");
+	var header=JSON.parse(base64Decode(segments[0]));
+	var payload=JSON.parse(base64Decode(segments[1])); 
+	var rawSignature=segment[0]+'.'+segments[1];
+	if(!verify(rawSignature,secret,segments[2]))
+		throw new Error("verification failed");
+	return payload;
+}
+function verify(raw,secret,signature){
+	return signature===sign(raw,secret);
+}
 function sign(str,key){
 	return crypto.createHmac('sha256',key).update(str).digest('base64');
 }

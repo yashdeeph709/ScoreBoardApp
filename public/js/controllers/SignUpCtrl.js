@@ -1,4 +1,4 @@
-app.controller('SignUpCtrl',function($scope,$state,$timeout,Signup){
+app.controller('SignUpCtrl',function($scope,$state,Signup){
 		$scope.signup=function(){
 		if(Signup.create($scope.fname,$scope.lname,$scope.email,$scope.password,$scope.repeat)){
 		console.log("service create called with mailid"+$scope.email);
@@ -6,9 +6,6 @@ app.controller('SignUpCtrl',function($scope,$state,$timeout,Signup){
 		}else{
 			$scope.flag=true;
 			$scope.message=Signup.getLastMessage();
-			$timeout.setInterval(function(){
-				$scope.flag=false;
-			},5000);
 		}
 		};
 		$scope.passCheck=function(){

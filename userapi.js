@@ -4,11 +4,12 @@ var mongoose = require('mongoose');
 var signup = require('./models/signup');
 var login = require('./models/login');
 var mandrill = require('mandrill-api/mandrill');
-var jwt=require('./services/jwt.js');
+var bcrypt=require('bcrypt-nodejs');
+var jwt = require('jwt-simple');
 
 mandrill_client = new mandrill.Mandrill('g0ztvmVrxFHb8--EWZA8Ag');
-router.post('/register', function(req, res) {
 
+router.post('/register', function(req, res) {
     var verificationCode = Math.floor(Math.random() * 100000000);
     var newUser = new signup({
         "firstname": req.body.fname,
@@ -17,35 +18,31 @@ router.post('/register', function(req, res) {
         "password": req.body.password,
         "verify": verificationCode
     });
-    var message = {
-        "html": "<a href='http://scoreboardv.heroku.com/userapi/verify/" + verificationCode + "'>for activating your scoreboard account click here!</a></body><html>",
-        "subject": "Scoreboard Email ID verification Mail!",
-        "from_email": "yashdeeph709@gmail.com",
-        "from_name": "Yashdeep Hinge",
-        "to": [{
-            "email": req.body.email,
-            "name": req.body.fname,
-            "type": "to"
-        }],
-        "headers": {
-            "Reply-To": "noreply@example.com"
+    sendMail(req.body,verificationCode);
+    newUser.save(function(err){createSendToken(newUser,req,res);});
+});
+
+router.post('/login', function(req, res) {
+    var user = {emailid: req.body.emailid};
+    console.log(user);
+    login.findOne(user, function(err, userlogged) {
+        if(err){ throw err}
+        
+        if(!userlogged){
+            console.log('user not exit'+userlogged);
+            return res.status(401).send({message:'Email Doesnt exists'});
         }
-    };
-    var payload={
-        iss:req.hostname,
-        sub:newUser._id
-    };
-    var token=jwt.encode(payload,"shh...");
-    
-    mandrill_client.messages.send({"message": message},
-    function(result){console.log(result);}, function(e) {console.log( e.name + ' - ' + e.message);});
-    newUser.save(function(err, data) {
-        res.status(200).send({user:newUser.emailid,token:token})
+        userlogged.comparePasswords(req.body.password,function(err,isMatch){
+            if(err){ throw err }
+            if(!isMatch){ res.status(401).send({message:'Wrong email/password'}); }
+            createSendToken(userlogged,req,res);
+        });
+
     });
 });
 
 router.get('/verify/:code', function(req, res) {
-    console.log('verification url called with '+req.params.code);
+    console.log('verification url called with ' + req.params.code);
     signup.findOne({
         'verify': req.params.code
     }, function(err, data) {
@@ -61,33 +58,31 @@ router.get('/verify/:code', function(req, res) {
                     res.send("<h1>Verification error occured</h1>")
                 }
             })
-        } 
+        }
     });
 });
 
-router.get('/user/:email/:password', function(req, res) {
-    login.findOne({
-        'emailid': req.params.email,
-        'password': req.params.password
-    }, function(err, data) {
-        if (!err && data != null) {
-            res.cookie('uid', "" + data._id, {
-                maxAge: 10000
-            });
-            res.send({
-                'success': 1
-            });
-        } else {
-            res.send({
-                'success': 0
-            });
-        }
-    })
+function createSendToken(user,req,res){
+    var payload = {iss: req.hostname,sub: user.id};
+    var token = jwt.encode(payload, "shh...");
+    res.status(200).send({
+            user: user.emailid,
+            token: token
+    }); 
+}
 
-});
-router.get('/logout', function(req, res) {
-    res.clearCookie('uid');
-    res.clearCookie('cid')
-    res.redirect('/');
-});
+function sendMail(user,verificationCode){
+var message = {
+        "html": "<a href='http://scoreboardv.heroku.com/userapi/verify/" + verificationCode + "'>for activating your scoreboard account click here!</a></body><html>",
+        "subject": "Scoreboard Email ID verification Mail!",
+        "from_email": "yashdeeph709@gmail.com",
+        "from_name": "Yashdeep Hinge",
+        "to": [{"email": user.email,"name": user.fname,"type": "to"}],
+        "headers": {"Reply-To": "yashdeeph709@gmail.com"}
+    };
+    mandrill_client.messages.send({"message": message},function(result) {
+        console.log(result);}, function(e) {
+        console.log(e.name + ' - ' + e.message);
+    });
+}
 module.exports = router;

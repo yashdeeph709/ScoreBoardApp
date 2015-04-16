@@ -1,7 +1,7 @@
 var app=angular.module('ScoreBoardApp');
 app.config(router);
 
-function router($stateProvider,$urlRouterProvider,$locationProvider){
+function router($stateProvider,$urlRouterProvider,$locationProvider,$httpProvider){
 $stateProvider.state('home',{'url':'/',templateUrl:'partials/home.html'});
 $stateProvider.state('dashboard',{'url':'/dashboard',templateUrl:'partials/Dashboard.html'});
 $stateProvider.state('dashboard.startmatch',{'url':'/startmatch',templateUrl:'partials/startmatch.html'});
@@ -21,6 +21,7 @@ $stateProvider.state('activate',{'url':'/activate',templateUrl:'partials/activat
 $stateProvider.state('logout',{'url':'/logout',controller:'LogoutCtrl'});
 $stateProvider.state('404',{'url':'/404',templateUrl:'partials/404.html'});
 $urlRouterProvider.otherwise('/');
+$httpProvider.interceptors.push('authInterceptor');
 }
 
 app.run(function ($window,ipCookie){

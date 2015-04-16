@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var championship = require('./models/championship');
 var os = require('os');
+
 if(process.env.deploy){
 console.log('wrong try');
 mongoose.connect(process.env.MONGOLAB_URI);
@@ -10,6 +11,7 @@ mongoose.connect(process.env.MONGOLAB_URI);
 console.log('right try')
 mongoose.connect('mongodb://localhost:27017/scoreboard');
 }
+
 router.post('/championship', function(req, res) {
     var newChampionship = new championship({
         "user": "default",
@@ -39,6 +41,10 @@ router.post('/championship', function(req, res) {
 
 router.get('/championship', function(req, res) {
     championship.find({}, function(err, result) {
+        if(!req.headers.authorization){
+            return res.status(401).send({message:'you are not authorized'});
+        }
+        
         res.json(result);
         res.end();
     });

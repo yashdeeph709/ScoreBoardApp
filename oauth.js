@@ -10,7 +10,7 @@ router.post('/auth/google', function(req, res) {
         redirect_uri: req.body.redirectUri,
         code: req.body.code,
         grant_type: 'authorization_code',
-        client_secret: 'tFj9o49HLVyZuRog-wjODIua'
+        client_secret: 'SvLpQJ4xmzoAJ4tg_YpMc-Js'
     };
     request.post(url, {
         json: true,
@@ -29,7 +29,6 @@ router.post('/auth/google', function(req, res) {
                 if (err) {
                     console.log(err);
                 } else {
-
                 	console.log(profile);
                 }
             });

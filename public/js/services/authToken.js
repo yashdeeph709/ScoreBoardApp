@@ -14,7 +14,6 @@ app.factory('authToken',function($window){
 			return cachedToken;
 		},
 		isAuthenticated:function(){
-			
 			return !!authToken.getToken();
 		},
 		removeToken:function(){
