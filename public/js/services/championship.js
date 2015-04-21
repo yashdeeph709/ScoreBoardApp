@@ -1,5 +1,5 @@
 var app=angular.module('ScoreBoardApp');
-app.factory('championship',function($http,$resource){
+app.factory('championship',function($http){
 	return{
 	"ChampionShip_Name":"IPL",
 	"organizer":"",
@@ -58,7 +58,9 @@ app.factory('championship',function($http,$resource){
 		return this.teams[id-1].players;
 	},
 	getChampionships:function(){
-		return $resource('api/championship',{},{query:{method:'GET',isArray:true}}).query();
+		return $http.get('api/championship').success(function(championship){
+			return championship;
+		});
 	}
 	}
 });
