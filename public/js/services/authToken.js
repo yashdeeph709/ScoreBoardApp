@@ -1,10 +1,11 @@
 var app=angular.module('ScoreBoardApp');
 
 app.factory('authToken',function($window){
-	var storage=$window.localStorage;
-	var cachedToken;
-	var authToken={
+		var storage=$window.localStorage;
+		var cachedToken;
+		var authToken= {
 		setToken:function(token){
+			console.log('set token called with'+token);
 			cachedToken=token;
 			storage.setItem('userToken',token);
 		},

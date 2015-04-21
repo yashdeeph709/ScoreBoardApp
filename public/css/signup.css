@@ -1,0 +1,44 @@
+
+/* passcheck styles */
+            .strength0
+            {
+                width:0%;
+                background:#B20E37;
+                text-align: center;
+                font-weight: bold;
+            }
+            .strength1
+            {
+                width:20%;
+                background:#D32847;
+                text-align: center;
+                font-weight: bold;
+            }
+            .strength2
+            {
+                width:40%;
+                background:#ff5f5f;
+                text-align: center;
+                font-weight: bold;
+            }
+            .strength3
+            {
+                width:60%;
+                background:#83D680;
+                 text-align: center;
+                font-weight: bold;
+            }
+            .strength4
+            {
+                background:#4dcd00;
+                width:80%;
+                 text-align: center;
+                font-weight: bold;
+            }
+            .strength5
+            {
+                background:#399800;
+                width:95%;
+                text-align: center;
+                font-weight: bold;
+            }

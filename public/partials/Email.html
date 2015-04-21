@@ -1,0 +1,10 @@
+<div class="col-md-12" data-ng-controller="emailCtrl">
+<form action="" method="POST" role="form">
+	<legend>Enter your Mail Id</legend>
+	<div class="form-group">
+		<label>Enter Password</label>
+		<input type="text" class="form-control" ng-model="password" placeholder="Input field">
+	</div>
+	<div class="alert" ng-show="message">{{message}}</div>
+	<button type="submit" class="btn btn-primary" data-ng-click="changePass()">Submit</button>
+</form>

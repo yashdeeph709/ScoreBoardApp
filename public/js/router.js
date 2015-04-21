@@ -24,7 +24,7 @@ $urlRouterProvider.otherwise('/');
 $httpProvider.interceptors.push('authInterceptor');
 }
 
-app.run(function ($window,ipCookie){
+app.run(function ($window){
 var params=$window.location.search.substring(1);
 		if(params && $window.opener && $window.opener.location.origin==$window.location.origin){
 			var pair=params.split('=');

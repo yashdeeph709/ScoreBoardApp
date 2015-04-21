@@ -3,18 +3,30 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var championship = require('./models/championship');
 var os = require('os');
+var jwt=require('jwt-simple');
 
 if(process.env.deploy){
-console.log('wrong try');
+console.log('Deployment Environment');
 mongoose.connect(process.env.MONGOLAB_URI);
 }else{
-console.log('right try')
+console.log('Development Environment');
 mongoose.connect('mongodb://localhost:27017/scoreboard');
 }
 
 router.post('/championship', function(req, res) {
+        if(!req.headers.authorization){
+            console.log('authorization header not found in getTeams');
+            return res.status(401).send({message:'Your not authorized'});
+        }
+        var token=req.headers.authorization;
+        var payload=jwt.decode(token,'shh...');
+   
+        if(!payload.sub){
+            return res.status(401).send({message:'you are not authorized to view'});
+        }
+    
     var newChampionship = new championship({
-        "user": "default",
+        "user": payload.sub,
         "ChampionShip_Name": req.body.chamname,
         "organizer": req.body.organizer,
         "description": req.body.description,
@@ -41,17 +53,25 @@ router.post('/championship', function(req, res) {
 
 router.get('/championship', function(req, res) {
     championship.find({}, function(err, result) {
-        if(!req.headers.authorization){
-            return res.status(401).send({message:'you are not authorized'});
-        }
-        
         res.json(result);
         res.end();
     });
 });
 
 router.post('/addTeam', function(req, res) {
-    return championship.findById(req.cookies.cid, function(err, cham) {
+        if(!req.headers.authorization){
+            console.log('authorization header not found in getTeams');
+            return res.status(401).send({message:'Your not authorized'});
+        }
+        var token=req.headers.authorization;
+        var payload=jwt.decode(token,'shh...');
+   
+        if(!payload.sub){
+            return res.status(401).send({message:'you are not authorized to view'});
+        }
+    
+  
+    return championship.findOne({user:payload.sub}, function(err, cham) {
         if (!err) {
             var team = {
                 "tid": req.body.id,
@@ -75,10 +95,22 @@ router.post('/addTeam', function(req, res) {
 });
 
 router.post('/addPlayer', function(req, res) {
-        return championship.findById(req.cookies.cid, function(err, cham) {
+        if(!req.headers.authorization){
+            console.log('authorization header not found in getTeams');
+            return res.status(401).send({message:'Your not authorized'});
+        }
+        var token=req.headers.authorization;
+        var payload=jwt.decode(token,'shh...');
+   
+        if(!payload.sub){
+            return res.status(401).send({message:'you are not authorized to view'});
+        }
+    
+
+        return championship.findOne({user:payload.sub}, function(err, cham) {
                 if (!err && cham!=undefined) {
                     var player = {
-                        "playername": req.body.pname,
+                        "pname": req.body.pname,
                         "skills": req.body.skills,
                         "position": req.body.position
                     };
@@ -94,5 +126,6 @@ router.post('/addPlayer', function(req, res) {
                 }
             });
 });
+
 
 module.exports = router;

@@ -1,4 +1,4 @@
-var app=angular.module('ScoreBoardApp',['ipCookie','ngResource','ui.bootstrap','ui.router','ngAnimate','satellizer']);
+var app=angular.module('ScoreBoardApp',['ui.bootstrap','ui.router']);
 
 app.controller('HomeController',function($scope,$state){
 	$scope.startChampionship=function (){

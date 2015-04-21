@@ -8,6 +8,7 @@ exports.encode=function(payload, secret){
  	return jwt+'.'+sign(jwt,secret);
 
 }
+
 exports.decode=function(token,secret){
 	var segments=token.split('.');
 	if(segments.length!==3)

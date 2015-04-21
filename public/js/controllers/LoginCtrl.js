@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', function($scope, $state,auth,$auth) {
+app.controller('LoginCtrl', function($scope,$state,auth) {
     $scope.login = function() {
         var result;
         auth.login($scope.email,$scope.password).success(function(data) {
@@ -7,10 +7,4 @@ app.controller('LoginCtrl', function($scope, $state,auth,$auth) {
             $scope.message = err.message;
         });
     };
-    $scope.authenticate = function(provider) {
-      $auth.authenticate(provider);
-    };
-    $scope.googleauth = function() {
-        auth.oauth();
-    }
 });

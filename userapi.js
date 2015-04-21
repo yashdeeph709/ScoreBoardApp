@@ -18,7 +18,7 @@ router.post('/register', function(req, res) {
         "password": req.body.password,
         "verify": verificationCode
     });
-    sendMail(req.body,verificationCode);
+    sendMailForVerification(req.body,verificationCode);
     newUser.save(function(err){createSendToken(newUser,req,res);});
 });
 
@@ -34,7 +34,7 @@ router.post('/login', function(req, res) {
         }
         userlogged.comparePasswords(req.body.password,function(err,isMatch){
             if(err){ throw err }
-            if(!isMatch){ res.status(401).send({message:'Wrong email/password'}); }
+            if(!isMatch){ return res.status(401).send({message:'Wrong email/password'}); }
             createSendToken(userlogged,req,res);
         });
 
@@ -71,13 +71,13 @@ function createSendToken(user,req,res){
     }); 
 }
 
-function sendMail(user,verificationCode){
+function sendMailForVerification(user,verificationCode){
 var message = {
-        "html": "<a href='http://scoreboardv.heroku.com/userapi/verify/" + verificationCode + "'>for activating your scoreboard account click here!</a></body><html>",
-        "subject": "Scoreboard Email ID verification Mail!",
+        "html": "<a href='http://scoreboardv.heroku.com/userapi/changePassword/" + verificationCode + "'>for activating your scoreboard account click here!</a></body><html>",
+        "subject": "Scoreboard Password reset Mail!",
         "from_email": "yashdeeph709@gmail.com",
         "from_name": "Yashdeep Hinge",
-        "to": [{"email": user.email,"name": user.fname,"type": "to"}],
+        "to": [{"email": user.emailid,"name": user.fname,"type": "to"}],
         "headers": {"Reply-To": "yashdeeph709@gmail.com"}
     };
     mandrill_client.messages.send({"message": message},function(result) {
@@ -85,4 +85,5 @@ var message = {
         console.log(e.name + ' - ' + e.message);
     });
 }
+
 module.exports = router;

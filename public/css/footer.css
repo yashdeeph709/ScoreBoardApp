@@ -1,0 +1,10 @@
+.site-footer{position:relative;margin-top:40px;padding-top:40px;padding-bottom:40px;font-size:12px;line-height:1.5;color:#777;border-top:1px solid #eee}
+.site-footer:before{display:table;content:""}
+.site-footer:after{display:table;clear:both;content:""}
+.site-footer .octicon-mark-github{position:absolute;top:38px;left:50%;height:24px;width:24px;margin-left:-12px;font-size:24px;color:#ccc}
+.site-footer .octicon-mark-github:hover{color:#bbb}
+.site-footer-links{margin:0;list-style:none}
+.site-footer-links li{display:inline-block;line-height:16px}
+.site-footer-links li+li{margin-left:10px}
+.billing-plans tbody td{width:25%;vertical-align:middle} 
+.site-footer{border-top:0;margin-top:0}
