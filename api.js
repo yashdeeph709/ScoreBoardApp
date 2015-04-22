@@ -127,5 +127,18 @@ router.post('/addPlayer', function(req, res) {
             });
 });
 
+router.get('/pointstable', function(req, res) {
+    championship.find({}, function(err, result) {
+        res.json(result.pointstable);
+        res.end();
+    });
+});
+
+router.get('/matchhistory', function(req, res) {
+    championship.find({}, function(err, result) {
+        res.json(result.matchlist);
+        res.end();
+    });
+});
 
 module.exports = router;

@@ -4,7 +4,7 @@
 	  <li role="presentation" class="active"><a ui-sref=".startmatch">Start Match</a></li>
 	  <li role="presentation"><a ui-sref=".pointstable">Points Table</a></li>
 	  <li role="presentation"><a ui-sref=".history">Matches History</a></li>
-	  <li role="presentation"><a ui-sref="createcship">Create Championship</a></li>
+	  <li role="presentation" ng-if="nocreate"><a ui-sref="createcship">Create Championship</a></li>
 	</ul>
 </div>
 <div ui-view></div>

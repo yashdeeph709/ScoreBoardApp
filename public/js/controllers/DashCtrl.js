@@ -3,4 +3,5 @@ app.controller('dashboardCtrl',function($scope,$state,$http,authToken,championsh
 	if(!authToken.isAuthenticated()){
 		$state.go('home');
 	}	
+	$http.get('match/getTeams').success(function(){$scope.nocreate=false;})
 });

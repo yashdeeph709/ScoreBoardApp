@@ -3,7 +3,7 @@ var app = express();
 var api=require('./api');
 var bodyParser = require('body-parser');
 var userapi=require('./userapi');
-var scoreboard=require('./scoreboard')
+var match=require('./scoreboard')
 var os=require('os');
 
 app.set('port', (process.env.PORT || 5000));
@@ -20,7 +20,7 @@ app.use(function(req,res,next){
 /* api paths */
 app.use('/api',api);
 app.use('/userapi',userapi);
-app.use('/scoreboard',scoreboard);
+app.use('/match',match);
 
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'));

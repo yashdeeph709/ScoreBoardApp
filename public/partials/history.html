@@ -1,5 +1,17 @@
-<div class="panel panel-default">
+<div class="col-md-9" data-ng-controller="matchHistory">
+<div class="panel panel-info">
+	<div class="panel-heading">Match History:</div>
 	<div class="panel-body">
-	   Basic panel example
+		<table class="table table-responsive">
+			<tr>
+				<th>Teams</th>
+				<th>Winner</th>
+			</tr>
+			<tr data-ng-repeat="match in matches">
+				<td>{{match.team1}} Vs {{match.team2}}</td>
+				<td>{{match.winner}}</td>
+			</tr>
+		</table>
 	</div>
+</div>
 </div>
