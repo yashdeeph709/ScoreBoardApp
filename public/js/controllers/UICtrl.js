@@ -1,4 +1,6 @@
 angular.module('ui.bootstrap').controller('CarouselCtrl', function ($scope) {
+  console.log('Carousel Controller Loaded!');
+  
   $scope.myInterval = 5000;
   var slides = $scope.slides = [];
   $scope.addSlide = function() {

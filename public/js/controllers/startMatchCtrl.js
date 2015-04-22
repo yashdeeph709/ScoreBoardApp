@@ -1,6 +1,9 @@
 var app=angular.module('ScoreBoardApp');
 
-app.controller('startMatchCtrl',function($scope,$http,$state){
+app.controller('startMatchCtrl',function($scope,$http,$state,MatchService){
+	console.log('start match Controller Loaded!');
+	
+
 	$http.get('match/getTeams')
 	.success(function(data){
 		$scope.teams=data;
@@ -20,16 +23,8 @@ app.controller('startMatchCtrl',function($scope,$http,$state){
 	}
 
 	$scope.start=function(){
-		var reqdata={
-			team1:$scope.team1,
-			team2:$scope.team2,
-			bat1:$scope.batson,
-			bat2:$scope.batsoff,
-			bowl:$scope.bowler
-		}
-		$http.post('/match/startmatch',reqdata);
+		MatchService.startMatch($scope.team1,$scope.team2,$scope.batson,$scope.batsoff,$scope.bowler);
 		$state.go('loop');
-
 	}
 
 	function find(teams,team){

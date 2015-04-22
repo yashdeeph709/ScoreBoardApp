@@ -6,13 +6,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" ui-sref="/">Scoreboard</a>
+                    <a class="navbar-brand" ui-sref="home">Scoreboard</a>
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a ui-sref="home">Home!</a></li>
+                        <li><a ng-if="!isAuthenticated()" ui-sref="dashboard.startmatch">Home</a></li>
+                        <li><a ng-if="isAuthenticated()" ui-sref="dashboard.startmatch">Dashboard</a></li>
+                        <li><a ng-if="isAuthenticated()" ui-sref="dashboard.startmatch">Points Table</a></li>
+                        <li><a ng-if="isAuthenticated()" ui-sref="dashboard.startmatch">Match History</a></li>
                         <li><a ui-sref="championships">Championships!</a></li>
                         <li><a ng-if="!isAuthenticated()" ui-sref="joinus">Join us!</a></li>
+                        <li class="pull-right" data-ng-if="isAuthenticated()"><a>Welcome {{username}}!</a></li>
                         <li><a ng-if="isAuthenticated()" ui-sref="logout" >Logout</a></li>
                     </ul>
                 </div>

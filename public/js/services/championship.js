@@ -1,10 +1,10 @@
 var app=angular.module('ScoreBoardApp');
 app.factory('championship',function($http){
 	return{
-	"ChampionShip_Name":"IPL",
+	"ChampionShip_Name":"",
 	"organizer":"",
 	"description":"",
-	"overs":"10",
+	"overs":"",
 	"config":[],
 	"players":"12",
 	"teams":[],

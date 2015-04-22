@@ -1,4 +1,6 @@
 app.controller('SignUpCtrl',function($scope,$state,Signup){
+		console.log('Signup Controller Loaded!');
+	
 		$scope.signup=function(){
 		if(Signup.create($scope.fname,$scope.lname,$scope.email,$scope.password,$scope.repeat)){
 		console.log("service create called with mailid"+$scope.email);

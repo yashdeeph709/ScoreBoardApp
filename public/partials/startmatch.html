@@ -1,10 +1,9 @@
 
 <div class="col-md-9" ng-controller="startMatchCtrl">
 <form>
-	<div class="row">
-	<div class="form-group form-inline col-xs-offset-3">
-	<h1>SetUp Match:</h1>
-	</div>
+	<div class="panel panel-info">
+	<div class="panel-heading">SetUp Match:</div>
+	<div class="panel-body">
 	<div class="form-group col-xs-6  col-xs-offset-3">
 		<select ng-model="team1" class="form-control" class="form-control" required>
 		<option ng-repeat="team in teams">{{team.teamname}}</option>

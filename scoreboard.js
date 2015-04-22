@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Championship = require('./models/championship');
 var jwt=require('jwt-simple');
 var match=require('./models/match');
-
+var overs;
 router.get('/getTeams',function(req,res){
 		if(!req.headers.authorization){
             console.log('authorization header not found in getTeams');
@@ -21,6 +21,7 @@ router.get('/getTeams',function(req,res){
         	if(!data){
                 res.status(401).send({message:'you have no championship'})
             }else{
+                overs=data.overs;
                 res.send(data.teams);
             }
             res.end();
@@ -43,7 +44,7 @@ router.post('/startmatch',function(req,res){
             MatchId:12,
             Team1:req.body.team1,
             Team2:req.body.team2,
-            TotalOvers:12,
+            TotalOvers:overs,
             Inings:[{
                 order:1,
                 runrate:0,

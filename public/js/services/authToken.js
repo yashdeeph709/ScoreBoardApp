@@ -14,6 +14,12 @@ app.factory('authToken',function($window){
 				cachedToken=storage.getItem('userToken');
 			return cachedToken;
 		},
+		setUserName:function(name){
+			storage.setItem('username',name);	
+		},	
+		getUserName:function(){
+			return storage.getItem('username');
+		},
 		isAuthenticated:function(){
 			return !!authToken.getToken();
 		},

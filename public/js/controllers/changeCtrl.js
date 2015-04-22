@@ -1,6 +1,7 @@
 var app=angular.module('ScoreBoardApp');
 
 app.controller('changeCtrl',function($scope,$http){
+	console.log('Change Controller Loaded!');
 	$scope.changePass=function(){
 		var data={
 			verificationCode:$stateParams.get('code'),

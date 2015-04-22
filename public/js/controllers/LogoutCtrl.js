@@ -1,6 +1,6 @@
-var app=angular.module('ScoreBoardApp');
-
 app.controller('LogoutCtrl',function(authToken,$state){
+	console.log('Logout Controller Loaded!');
+	
 	authToken.removeToken();
 	$state.go('home');
 });

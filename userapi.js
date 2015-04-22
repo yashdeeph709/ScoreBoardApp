@@ -24,7 +24,6 @@ router.post('/register', function(req, res) {
 
 router.post('/login', function(req, res) {
     var user = {emailid: req.body.emailid};
-    console.log(user);
     login.findOne(user, function(err, userlogged) {
         if(err){ throw err}
         

@@ -1,4 +1,5 @@
-app.controller('CreateChCtrl',function($scope,$state,championship){
+app.controller('CreateChCtrl',function($scope,$state,championship,$http){
+	console.log('create championship controller Loaded!');	
 	$scope.createChampionship=function(){		
 			$http.get('match/getTeams')
 			.success(function(data){
