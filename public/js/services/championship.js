@@ -27,7 +27,7 @@ app.factory('championship',function($http){
 	 		"organizer":this.organizer,
 	 		"description":this.description
 	 	});
-	},
+		},
 	addPlayer:function(id,name,skills,position){
 		this.teams[id-1].players.push({
 			"id":this.teams[id-1].players.length+1,
