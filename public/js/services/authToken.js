@@ -17,6 +17,12 @@ app.factory('authToken',function($window){
 		setUserName:function(name){
 			storage.setItem('username',name);	
 		},	
+		getMatchId:function(){
+			return storage.getItem('matchid');
+		},
+		setMatchId:function(name){
+			storage.setItem('matchid',name);	
+		},	
 		getUserName:function(){
 			return storage.getItem('username');
 		},

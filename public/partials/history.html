@@ -4,10 +4,12 @@
 	<div class="panel-body">
 		<table class="table table-responsive">
 			<tr>
+				<th>Date</th>
 				<th>Teams</th>
 				<th>Winner</th>
 			</tr>
 			<tr data-ng-repeat="match in matches">
+				<td>{{match.date}}</td>
 				<td>{{match.team1}} Vs {{match.team2}}</td>
 				<td>{{match.winner}}</td>
 			</tr>

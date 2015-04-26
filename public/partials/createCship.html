@@ -26,22 +26,6 @@
 				<label>No. of Players(In a team)</label>
 				<input ng-required="true" type="text" required class="form-control" ng-model="championship.players" placeholder="No. of players"/>
 			</div>
-			<div class="form-group">
-				<label>Championship Options:</label>
-				<br>
-				<label>
-					<input ng-required="true" type="checkbox" ng-model="championship.noob">
-					Runs for Noob
-				</label>
-				<label>
-					<input ng-required="true" type="checkbox" ng-model="championship.wide">
-					Runs for wide
-				</label>
-				<label>
-					<input ng-required="true" type="checkbox" ng-model="championship.overstrike">
-					Over Completion Strike change:{{championship.overstrike}}
-				</label>
-			</div>
 			<button type="submit" ng-click="createChampionship()" class="btn btn-primary">Submit</button>
 		</form>
 	</div>

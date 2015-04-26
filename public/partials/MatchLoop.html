@@ -1,85 +1,40 @@
-<div class="col-md-12 alert alert-success" data-ng-controller="matchLoopCtrl">
-<h4>
-<span class="pull-left">Score:124/4</span>
-<span class="pull-right">Run Rate:7.16</span>
-</h4>
-</div>
-<div class="col-md-6">
-    <div class="panel panel-info" style="overflow:scroll;height:200px;">
-    <div class="panel-heading">Batting: Richard and bradman</div>
-    <div class="panel-body">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Runs</th>
-            <th>Bowls</th>
-            <th>Strike Rate</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>    
-    </div>
-    <div class="panel panel-info" style="overflow:scroll;height:200px;">
-    <div class="panel-heading">Bowling:Nawed</div>
-    <div class="panel-body">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Overs</th>
-            <th>Wickets</th>
-            <th>Extras</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>    
-    </div>
-</div>
-<div class="col-md-6">
-    <div class="panel panel-info">
+<div class="col-md-12 alert alert-success" data-ng-controller="matchLoopCtrl" style="color:black !important">
+    <div class="panel panel-info col-md-6">
     <div class="panel-heading">Score Entry:</div>
     <div class="panel-body">
-            <div class="score">
-            <ul>
-               <li></li>
-               <li></li>
-            </ul>
-            </div>
-            <br>
-            <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-info">0</button>
-                <button type="button" class="btn btn-info">1</button>
-                <button type="button" class="btn btn-info">2</button>
-                <button type="button" class="btn btn-info">3</button>
-                <button type="button" class="btn btn-info">4</button>
-                <button type="button" class="btn btn-info">6</button>
-                <button type="button" class="btn btn-info">wicket</button>
-            </div>
-            <div class="btn-group" role="group" aria-label="...">
-            Wide:<input type="radio" name="extra">
-            Noob:<input type="radio" name="extra">
-            </div>
-    </div>    
+            <form>
+                <div class="form-group">
+                Runs:{{match.Inings[match.IningNumber].runs || 0}}
+                Overs:{{match.Inings[match.IningNumber].overs.over+"."+match.Inings[match.IningNumber].overs.ball  || 0.0}}
+                Boundaries:{{match.Inings[match.IningNumber].boundaries}}
+                Sixes:{{match.Inings[match.IningNumber].sixes}}
+                <br>
+                        <button class="btn btn-info" ng-click="addRun(0)">0</button>
+                        <button class="btn btn-info" ng-click="addRun(1)">1</button>
+                        <button class="btn btn-info" ng-click="addRun(2)">2</button>
+                        <button class="btn btn-info" ng-click="addRun(3)">3</button>
+                        <button class="btn btn-info" ng-click="addRun(4)">4</button>
+                        <button class="btn btn-info" ng-click="addRun(6)">6</button>
+                </div>
+                <div class="form-group">
+                Wide:<input type="radio" ng-model="extra" value="wide">
+                Noob:<input type="radio" ng-model="extra" value="noob">
+                </div> 
+           </form>
     </div>
-    <div class="panel panel-info">
-    <div class="panel-heading">Last Six balls:</div>
-    <div class="panel-body">********summary of last 6 balls ***********</div>
     </div>
+
+    <div class="panel panel-info col-md-6" style="overflow:scroll;height:300px;">
+    <div class="panel-heading">Balls:</div>
+    <div class="panel-body">
+            <table class="table table-condensed">
+                <tr ng-repeat="batsman in match.Inings[match.IningNumber].batting">
+                <td>{{batsman.Name}}</td>
+                <td>{{batsman.Runs}}</td>
+                <td><button class="btn btn-info" ng-click="open()">Wicket</button></td>
+                </tr>
+            </table>
+    </div>
+    </div>
+
 </div>

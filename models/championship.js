@@ -17,6 +17,7 @@ var pointSchema=new Schema({
         "points":Number
 });
 var matchSchema=new Schema({
+        "date":String,
         "team1":String,
         "team2":String,
         "winner":String
@@ -28,7 +29,6 @@ var championshipSchema=new Schema({
         "description":String,
         "overs":Number,
         "players":Number,
-        "config":[Boolean],
         "teams":[teamSchema],
         "pointstable":[pointSchema],
         "matchlist":[matchSchema]

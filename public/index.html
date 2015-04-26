@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/signup.css">        
         <link rel="stylesheet" href="css/footer.css">        
         <link rel="stylesheet" href="css/panel-cards.css">         
+        <link rel="stylesheet" href="css/animate.css">         
     </head>
     <body>
         <div class="container">
@@ -19,9 +20,7 @@
                 <div ng-include="'partials/navigation.html'"></div>
             </div>
             <div class="row">
-            <div class="ui-view-container">
-                <div class="col-md-12 well" ui-view></div>
-            </div>
+               <div class="col-md-12 well" ui-view></div>
             </div>
             <div class="row">
             <div data-ng-include="'partials/footer.html'"></div>
@@ -48,7 +47,7 @@
         <script src="js/controllers/matchLoopCtrl.js"></script>
         <script src="js/controllers/pointsTableCtrl.js"></script>
         <script src="js/controllers/matchHistory.js"></script>
-        <script src="js/services/match.js"></script>
+        <script src="js/controllers/iningChangeCtrl.js"></script>
         <script src="js/services/championship.js"></script>
         <script src="js/services/join.js"></script>
         <script src="js/services/login.js"></script>
