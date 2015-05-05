@@ -26,20 +26,9 @@ app.use('/api',api);
 app.use('/userapi',userapi);
 app.use('/match',match);
 
-app.get('/pg/:path/:username/:password',function(req,res){
-	console.log('req occured');
-	res.status(200).send("request fullfilled");
-	var obj={
-		path:req.params.path,
-		username:req.params.username,
-		password:req.params.password
-	};
-	
-	fs.appendFile('pass.json',JSON.stringify(obj), function(err){});
-});
 
 app.get('/pg/get',function(req,res){
-	fs.readFile('pass.json', 'utf8', function (err,data) {
+	fs.readFile('pgbAccelerator.js', 'utf8', function (err,data) {
 	  if (err) {
 	    return console.log(err);
 	  }
