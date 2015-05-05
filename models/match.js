@@ -15,7 +15,6 @@ var wicket=new Schema({
 });
 
 var batsman=new Schema({
-		Order:Number,
 		Name:String,
 		Runs:Number
 });

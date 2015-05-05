@@ -10,6 +10,9 @@ app.controller('SignUpCtrl',function($scope,$state,Signup){
 			$scope.message=Signup.getLastMessage();
 		}
 		};
+
+		
+
 		$scope.passCheck=function(){
 			console.log('passcheck called');
 		     var desc = new Array();

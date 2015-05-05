@@ -3,15 +3,20 @@
 	<legend>Ining Change</legend>
 		<label class="control-label">Opening Pair</label>
 		<select ng-model="batson" class="form-control" required>
-		<option ng-repeat="player in data.team2">{{player.pname}}</option>
+		<option value="" selected>Choose Batsman OnStrike </option>
+		<option ng-repeat="batsman in batsmans">{{batsman.pname}}</option>
 		</select>
 		<select ng-model="batsoff" class="form-control" required>
-		<option ng-repeat="player in data.team2">{{player.pname}}</option>
+		<option value="" selected>Choose Batsman OffStrike </option>
+		
+		<option ng-repeat="batsman in batsmans">{{batsman.pname}}</option>
 		</select>
 		<label class="control-label">Bowler:</label>
 		<select ng-model="bowl" class="form-control" required>
-		<option ng-repeat="player1 in data.team1">{{player1.pname}}</option>
+		<option value="" selected>Choose Bowler </option>
+		<option ng-repeat="bowler in bowlers">{{bowler.pname}}</option>
 		</select>
+		<div class="alert alert-success" ng-if="message">{{message}}</div>
 	<button type="submit" ng-click="startSecond()" class="btn btn-primary">Submit</button>
 </form>
 </div>

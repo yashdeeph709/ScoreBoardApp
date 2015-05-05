@@ -35,6 +35,7 @@ app.controller('startMatchCtrl',function($scope,$http,$state,authToken){
 		$http.post('match/startmatch',reqdata).success(function(data){
 			console.log(data);
 			authToken.setMatchId(data.matchid);
+			authToken.setIning(1);
 			$state.go('loop')
 		}).error(function(err){
 			console.log('error occured'+err);
@@ -43,6 +44,9 @@ app.controller('startMatchCtrl',function($scope,$http,$state,authToken){
 
 	function find(teams,team){
 		for(i=0;i<teams.length;i++){
+			if(i==1){
+				i++;
+			}
 			if(teams[i].teamname===team){
 				return i;
 			}

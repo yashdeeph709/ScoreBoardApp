@@ -1,14 +1,12 @@
 app.controller('CreateChCtrl',function($scope,$state,championship,$http){
-	console.log('create championship controller Loaded!');	
-	$scope.createChampionship=function(){		
-			$http.get('match/getTeams')
+	console.log('create championship controller Loaded!');
+	$http.get('match/getTeams')
 			.success(function(data){
 				$state.go('dashboard.startmatch');		
-			});
-		championship.setChampionship($scope.championship.name,$scope.championship.organizer,
-		$scope.championship.description,$scope.championship.overs,$scope.championship.players
-		,$scope.noob,$scope.wide,$scope.overstrike);
-		console.log(championship);
+			});	
+	$scope.createChampionship=function(){			
+		championship.setChampionship($scope.name,$scope.organizer,
+		$scope.description,$scope.overs);
 		$state.go("teamentry");
 	}
 });

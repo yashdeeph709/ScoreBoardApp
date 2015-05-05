@@ -28,10 +28,6 @@ router.post('/championship', function(req, res) {
     });
     newChampionship.save(function(err, data) {
         if (!err) {
-            res.cookie('cid', "" + data._id, {
-                maxAge: 150000,
-                httpOnly: true
-            });
             res.end();
         } else {
             res.write('error occured');
@@ -49,7 +45,9 @@ router.get('/championship', function(req, res) {
 
 router.post('/addTeam', function(req, res) {
     var payload=authorize(req,res);
-  
+    if(!req.body.teamname){
+        return res.status(200).send({message:"Teamname of required"})
+    }
     return championship.findOne({user:payload.sub}, function(err, cham) {
         if (!err) {
             var team = {

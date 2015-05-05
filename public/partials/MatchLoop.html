@@ -1,14 +1,21 @@
-<div class="col-md-12 alert alert-success" data-ng-controller="matchLoopCtrl" style="color:black !important">
-    <div class="panel panel-info col-md-6">
+<div class="col-md-12" data-ng-controller="matchLoopCtrl" style="color:black !important">
+    <div class="panel panel-success col-md-6">
     <div class="panel-heading">Score Entry:</div>
     <div class="panel-body">
-            <form>
+            <ul class="list-group">
+              <li class="list-group-item">Runs:<span class="badge">{{match.Inings[match.IningNumber].runs || 0}}</span></li>
+              <li class="list-group-item">Overs:<span class="badge">{{match.Inings[match.IningNumber].overs.over+"."+match.Inings[match.IningNumber].overs.ball  || 0}}</span></li>
+              <li class="list-group-item">Boundaries:<span class="badge">{{match.Inings[match.IningNumber].boundaries || 0}}</span></li>
+              <li class="list-group-item">Sixes:<span class="badge">{{match.Inings[match.IningNumber].sixes || 0}}</span></li>
+              </ul>
+              <form>
                 <div class="form-group">
-                Runs:{{match.Inings[match.IningNumber].runs || 0}}
-                Overs:{{match.Inings[match.IningNumber].overs.over+"."+match.Inings[match.IningNumber].overs.ball  || 0.0}}
-                Boundaries:{{match.Inings[match.IningNumber].boundaries}}
-                Sixes:{{match.Inings[match.IningNumber].sixes}}
-                <br>
+                <label>Enter Extras:</label>
+                Wide:<input type="radio" ng-model="extra" value="wide">
+                Noob:<input type="radio" ng-model="extra" value="noob">
+                </div> 
+                <div class="form-group">
+                <label>Enter Runs:</label>
                         <button class="btn btn-info" ng-click="addRun(0)">0</button>
                         <button class="btn btn-info" ng-click="addRun(1)">1</button>
                         <button class="btn btn-info" ng-click="addRun(2)">2</button>
@@ -16,25 +23,34 @@
                         <button class="btn btn-info" ng-click="addRun(4)">4</button>
                         <button class="btn btn-info" ng-click="addRun(6)">6</button>
                 </div>
-                <div class="form-group">
-                Wide:<input type="radio" ng-model="extra" value="wide">
-                Noob:<input type="radio" ng-model="extra" value="noob">
-                </div> 
            </form>
     </div>
     </div>
 
-    <div class="panel panel-info col-md-6" style="overflow:scroll;height:300px;">
-    <div class="panel-heading">Balls:</div>
+    <div class="panel panel-success col-md-6" style="overflow:scroll;height:300px;">
+    <div class="panel-heading">Batting:</div>
     <div class="panel-body">
-            <table class="table table-condensed">
+            <table class="table table-bordered">
+                <tr>
+                <td>Batsman's Name</td>
+                <td>Runs:</td>
+                <td>Actions</td>
+                </tr>
                 <tr ng-repeat="batsman in match.Inings[match.IningNumber].batting">
                 <td>{{batsman.Name}}</td>
                 <td>{{batsman.Runs}}</td>
-                <td><button class="btn btn-info" ng-click="open()">Wicket</button></td>
+                <td><button class="btn btn-sm btn-info" ng-click="wicket(batsman.Name)">Wicket</button></td>
+                </tr>
+                <tr ng-show="batsmans">
+                <td>
+                    <select class="form-control" ng-model="nextBat" required>
+                        <option ng-repeat="player in batsmans | filter:match.Inings[match.IningNumber].batting.pname">{{player.pname}}</option>
+                    </select>
+                </td>
+                <td></td>
+                <td><button class="btn btn-sm btn-info" ng-click="nextBatsman()">Select</button></td>
                 </tr>
             </table>
     </div>
     </div>
-
 </div>

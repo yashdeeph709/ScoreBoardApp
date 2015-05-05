@@ -4,7 +4,7 @@ var Championship = require('./models/championship');
 var jwt = require('jwt-simple');
 var authorize = require('./authorizeModule');
 var match = require('./models/match');
-var strike=true;
+var strike=true,totalover;
 
 router.get('/getTeams', function(req, res) {
     var payload = authorize(req, res);
@@ -13,9 +13,10 @@ router.get('/getTeams', function(req, res) {
         user: payload.sub
     }, function(err, data) {
         if (!data) {
-            res.status(401).send({      message: 'you have no championship'    });
+            return res.status(401).send({      message: 'you have no championship'    });
         } else {
-            res.send(data.teams);
+            totalover=data.overs;
+            res.status(200).send(data.teams);
         }
         res.end();
     });
@@ -55,7 +56,7 @@ router.post('/startmatch', function(req, res) {
         Team1: req.body.tossWinner,
         Team2: second,
         Winner:"",
-        overs: 2,
+        overs: overs | totalover,
         Inings: [{
             team:req.body.tossWinner,
             runrate: 0,
@@ -154,10 +155,11 @@ router.post('/run', function(req, res) {
         }
         //overstrike change
         if(match.Inings[match.IningNumber].overs.ball===5){
-                    match.Inings[match.IningNumber].runrate=
-                    match.Inings[match.IningNumber].runs/
-                    match.Inings[match.IningNumber].overs.over;
             strike?strike=false:strike=true;   
+        }
+        //over logic
+        if(match.Inings[match.IningNumber].overs.ball===5){
+            match.Inings[match.IningNumber].bowling[match.Inings[match.IningNumber].bowling.length-1].Overs++;
         }
         //extra calculation logic
         if (req.body.extra == 'wide' || req.body.extra == 'noob') {
@@ -200,6 +202,9 @@ router.post('/run', function(req, res) {
 });
 
 router.post('/startsecond',function(req,res){
+    if(req.body.bat1==null || req.body.bat2==null || req.body.bowl==null){
+        return res.status(401).send({message:"You haven't selected one of the field"})
+    }
     match.findOne({"_id":req.body.matchid},function(err,match){
         match.Inings.push({
             team:match.Team2,
@@ -213,24 +218,19 @@ router.post('/startsecond',function(req,res){
             sixes: 0,
             balls: [],
             wickets: [],
-            batting: [],
-            bowling: []
-            });
-
-        match.Inings[match.IningNumber].batting.push({
+            batting: [{
                 Name: req.body.bat1,
                 Runs: 0
             },{
                 Name: req.body.bat2,
                 Runs: 0
-            });
-        
-        match.Inings[match.IningNumber].bowling.push({
+            }],
+            bowling: [{
                     Name:req.body.bowl,
                     Overs:0,
                     Wicket:0   
-        });
-        
+            }]
+            });
         match.save(function(err){
             if(err) return res.status(401).send({message:"match ining not saved"})
         });
@@ -238,7 +238,7 @@ router.post('/startsecond',function(req,res){
     });
 });
 
-router.post('/second',function(req,res){
+router.post('/getPlayers',function(req,res){
     var resdata={};
     var payload = authorize(req, res);
     match.findOne({"_id":req.body.matchid},function(err,match){
@@ -246,15 +246,33 @@ router.post('/second',function(req,res){
             if(err) return res.status(401).send("err occured"+err);
             if(!cham) return res.status(401).send("cham doen't exits");
             for(i=0;i<cham.teams.length;i++){
-                if(cham.teams[i].teamname==match.Team2){
-                    resdata.team2=cham.teams[i].players;
+                if(cham.teams[i].teamname==match.Team2 && req.body.team==2){
+                    resdata=cham.teams[i].players;
                 }
-                if(cham.teams[i].teamname==match.Team1){
-                    resdata.team1=cham.teams[i].players;
+                if(cham.teams[i].teamname==match.Team1 && req.body.team==1){
+                    resdata=cham.teams[i].players;
                 }
             }
             res.json(resdata);
         });
+    })
+});
+
+router.post('/wicket',function(req,res){
+    var payload = authorize(req, res);
+    match.findOne({"_id":req.body.matchid},function(err,mat){
+        if(!mat) return res.status(401).send("you have no match");
+        mat.Inings[mat.IningNumber].batting.push({
+            Name: req.body.nextMan,
+            Runs: 0
+        }); 
+        mat.Inings[mat.IningNumber].bowling[mat.Inings[mat.IningNumber].bowling.length-1].Wicket++;
+            mat.save(function(err){
+            if(!err){
+                res.send({wicket:"done"});
+            }
+        });
     });
 });
+
 module.exports = router;

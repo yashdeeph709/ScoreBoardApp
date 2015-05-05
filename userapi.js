@@ -33,12 +33,24 @@ router.post('/login', function(req, res) {
         }
         userlogged.comparePasswords(req.body.password,function(err,isMatch){
             if(err){ throw err }
-            if(!isMatch){ return res.status(401).send({message:'Wrong email/password'}); }
+            if(!isMatch){ return res.st111atus(401).send({message:'Wrong email/password'}); }
             createSendToken(userlogged,req,res);
         });
 
     });
 });
+
+router.get('/checkEmail/:emailid', function(req, res) {
+        login.findOne({emailid:req.params.emailid},function(err,login){
+            if(err) return res.status(401).send({message:"server error occured"});
+            if(!login){
+                return res.status(200).send({message:"Sorry this MailID is alreaddy registered with us"});
+            }else{
+                return res.status(200).send({message:"MailID is available for use"});
+            }
+        });
+});
+
 
 router.get('/verify/:code', function(req, res) {
     console.log('verification url called with ' + req.params.code);

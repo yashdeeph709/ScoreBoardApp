@@ -8,6 +8,15 @@ app.factory('Signup', function($http) {
         "password": "",
         "repeat": "",
         "message":"",
+        isAvailable:function(email){
+            var promise=$http.get('/userapi/checkEmail/'+email);
+            promise.success(function(data){
+                return data.message;
+            });
+            promise.error(function(err){
+                return err.message;
+            });
+        },
         validate: function() {
             this.message = [];
             if (this.FirstName == null || this.LastName == null || this.email == null || this.password == null) {

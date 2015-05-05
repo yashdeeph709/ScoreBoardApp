@@ -10,15 +10,14 @@ app.factory('championship',function($http){
 	"teams":[],
 	"pointstable":[],
 	"matchlist":[],
-	setChampionship:function(name,organizer,desc,overs,players,noob,wide,overstrike){
+	setChampionship:function(name,organizer,desc,overs){
 		this.ChampionShip_Name=name;
 		this.overs=overs;
-		this.players=players;
-		this.config[0]=noob;
-		this.config[1]=wide;
-	 	this.config[2]=overstrike;	
 	 	this.organizer=organizer;
 	 	this.description=desc;
+		if(!name||!organizer||!overs){
+			return "Please fill all fields";
+		}
 	 	$http.post('api/championship',{
 	 		"chamname":this.ChampionShip_Name,
 	 		"overs":this.overs,
@@ -29,6 +28,9 @@ app.factory('championship',function($http){
 	 	});
 		},
 	addPlayer:function(id,name,skills,position){
+		if(!name||!skills||!position){
+			return "Please fill all fields";
+		}
 		this.teams[id-1].players.push({
 			"id":this.teams[id-1].players.length+1,
 			"name":name,
@@ -43,6 +45,9 @@ app.factory('championship',function($http){
 		});
 	},
 	addTeam:function(teamname){
+		if(!teamname){
+			return "Please fill all fields";
+		}
 		this.teams.push({"id":this.teams.length+1,"teamname":teamname,"players":[]});
 		$http.post('api/addTeam',{
 	 			"id":this.teams.length,

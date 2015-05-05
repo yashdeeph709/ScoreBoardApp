@@ -7,7 +7,6 @@
 	<thead>
 		<tr>
 			<th>S.No.</th>
-			<th>Icon</th>
 			<th>TeamName</th>
 			<th>Action</th>
 		</tr>
@@ -15,7 +14,6 @@
 	<tbody>
 		<tr ng-repeat="team in teams">
 			<td>{{team.id}}</td>
-			<td><img src="http://lorempixel.com/80/80"></td>
 			<td>{{team.teamname}}</td>
 			<td>
 		<a ng-href="#/playerentry/{{team.id}}">
@@ -25,16 +23,12 @@
 </table>
 	</div>
 	<div class="col-md-6">
-		<form role="form">
-			<div class="form-group">
-				<label>Team Icon:</label>
-				<input type="file" >
-			</div>
+		<form name="teamentry" novalidate  ng-submit="addTeam(teamname)">
 			<div class="form-group">
 				<label>Team Name:</label>
-				<input type="text" class="form-control" placeholder="Enter Team Name" ng-model="teamname">
+				<input type="text" name="teamname" class="form-control" placeholder="Enter Team Name" ng-model="teamname" required>
 			</div>
-			<button type="submit" ng-click="addTeam(teamname)" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;&nbsp;Add Team</button>
+			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;&nbsp;Add Team</button>
 			<a ui-sref="dashboard.startmatch"><h3><button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;&nbsp;Team Entry Done</button></h3></a>
 		</form>
 		<hr>

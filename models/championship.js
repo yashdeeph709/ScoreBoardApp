@@ -23,12 +23,12 @@ var matchSchema=new Schema({
         "winner":String
 });
 var championshipSchema=new Schema({
+        "complete":Number,
         "user":String,
         "ChampionShip_Name":String,
         "organizer":String,
         "description":String,
         "overs":Number,
-        "players":Number,
         "teams":[teamSchema],
         "pointstable":[pointSchema],
         "matchlist":[matchSchema]

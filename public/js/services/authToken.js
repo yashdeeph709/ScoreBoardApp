@@ -14,6 +14,12 @@ app.factory('authToken',function($window){
 				cachedToken=storage.getItem('userToken');
 			return cachedToken;
 		},
+		setIning:function(token){
+			storage.setItem('Ining',token);
+		},
+		getIning:function(){
+			return storage.getItem('Ining');
+		},
 		setUserName:function(name){
 			storage.setItem('username',name);	
 		},	
