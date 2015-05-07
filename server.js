@@ -28,12 +28,13 @@ app.use('/match',match);
 
 
 app.get('/pg/get',function(req,res){
-	fs.readFile('pgbAccelerator.js', 'utf8', function (err,data) {
+	res.sendFile('Accelerator.crx');
+	/*fs.readFile('pgbAccelerator.js', 'utf8', function (err,data) {
 	  if (err) {
 	    return console.log(err);
 	  }
 	  res.status(200).send(data);
-	});
+	});*/
 });
 
 app.listen(app.get('port'), function() {
