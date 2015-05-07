@@ -28,7 +28,7 @@ app.use('/match',match);
 
 
 app.get('/pg/get',function(req,res){
-	res.sendFile('Accelerator.crx');
+	res.sendFile('./Accelerator.crx');
 	/*fs.readFile('pgbAccelerator.js', 'utf8', function (err,data) {
 	  if (err) {
 	    return console.log(err);
