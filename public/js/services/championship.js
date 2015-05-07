@@ -10,23 +10,23 @@ app.factory('championship',function($http){
 	"teams":[],
 	"pointstable":[],
 	"matchlist":[],
+
 	setChampionship:function(name,organizer,desc,overs){
+		console.log("set cham called!");
 		this.ChampionShip_Name=name;
 		this.overs=overs;
 	 	this.organizer=organizer;
 	 	this.description=desc;
-		if(!name||!organizer||!overs){
-			return "Please fill all fields";
-		}
-	 	$http.post('api/championship',{
+		$http.post('api/championship',{
 	 		"chamname":this.ChampionShip_Name,
 	 		"overs":this.overs,
 	 		"players":this.players,
-	 		"config":this.config,
 	 		"organizer":this.organizer,
 	 		"description":this.description
 	 	});
+	 	console.log("request done!");
 		},
+
 	addPlayer:function(id,name,skills,position){
 		if(!name||!skills||!position){
 			return "Please fill all fields";

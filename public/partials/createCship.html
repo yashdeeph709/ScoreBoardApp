@@ -2,23 +2,23 @@
 	<div class="col-md-12 view-header">
 		<h3>Championship Details</h3>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-4" style="padding:40px;">
 	<form class="form-horizontal" novalidate ng-controller="CreateChCtrl">
 			<div class="form-group">
 					<label class="control-label">Championship Name:</label>
 					<input type="text" ng-model="name" class="form-control col-md-3" required>
 			</div>
 			<div class="form-group">
-					<label class="control-label">Championship Name:</label>
-					<input type="text" ng-model="organizer" class="form-control col-md-3" required>
+					<label class="control-label">Organizer:</label>
+					<textarea ng-model="organizer" class="form-control col-md-3" require>d</textarea>
 			</div>
 			<div class="form-group">
-					<label class="control-label">Championship Name:</label>
+					<label class="control-label">Description:</label>
 					<input type="text" ng-model="description" class="form-control col-md-3" required>
 			</div>
 			<div class="form-group">
-					<label class="control-label">Championship Name:</label>
-					<input type="text" ng-model="over" class="form-control col-md-3" required>
+					<label class="control-label">Overs:</label>
+					<input type="text" ng-model="overs" class="form-control col-md-3" required>
 			</div>
 			<div class="form-group">
 			<button type="submit" ng-click="createChampionship()" class="btn btn-info">Create</button>

@@ -21,6 +21,7 @@ $stateProvider.state('credits',{'url':'/credits',templateUrl:'partials/credit.ht
 $stateProvider.state('activate',{'url':'/activate',templateUrl:'partials/activate.html'});
 $stateProvider.state('logout',{'url':'/logout',controller:'LogoutCtrl'});
 $stateProvider.state('404',{'url':'/404',templateUrl:'partials/404.html'});
+$stateProvider.state('delCham',{'url':'/delCham',controller:'DelChamCtrl'});
 $urlRouterProvider.otherwise('/');
 $httpProvider.interceptors.push('authInterceptor');
 }

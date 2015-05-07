@@ -43,6 +43,17 @@ router.get('/championship', function(req, res) {
     });
 });
 
+router.post('/delCham', function(req, res) {
+    var payload=authorize(req,res);
+    
+    championship.remove({        
+        user: payload.sub
+    }, function(err, result) {
+        res.json(result);
+        res.end();
+    });
+});
+
 router.post('/addTeam', function(req, res) {
     var payload=authorize(req,res);
     if(!req.body.teamname){

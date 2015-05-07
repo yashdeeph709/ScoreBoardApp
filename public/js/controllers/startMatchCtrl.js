@@ -17,6 +17,8 @@ app.controller('startMatchCtrl',function($scope,$http,$state,authToken){
 			$scope.bowlers=$scope.teams[find($scope.teams,$scope.team2)].players;
 			$scope.tossWinner=$scope.team1;	
 		}else{
+			console.log("team2"+$scope.team2);
+			console.log("index of team1 is"+find($scope.teams,$scope.team1)+"index of team2"+find($scope.teams,$scope.team2))
 			$scope.players=$scope.teams[find($scope.teams,$scope.team2)].players;
 			$scope.bowlers=$scope.teams[find($scope.teams,$scope.team1)].players;
 			$scope.tossWinner=$scope.team2;
@@ -44,9 +46,6 @@ app.controller('startMatchCtrl',function($scope,$http,$state,authToken){
 
 	function find(teams,team){
 		for(i=0;i<teams.length;i++){
-			if(i==1){
-				i++;
-			}
 			if(teams[i].teamname===team){
 				return i;
 			}
