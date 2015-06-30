@@ -33,7 +33,7 @@ router.post('/login', function(req, res) {
         }
         userlogged.comparePasswords(req.body.password,function(err,isMatch){
             if(err){ throw err }
-            if(!isMatch){ return res.st111atus(401).send({message:'Wrong email/password'}); }
+            if(!isMatch){ return res.status(401).send({message:'Wrong email/password'}); }
             createSendToken(userlogged,req,res);
         });
 
